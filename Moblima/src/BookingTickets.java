@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.List;
 
+class Show
+{
+}
+
 public class BookingTickets {
     // customer id of the person who has made the booking
 
@@ -22,7 +26,7 @@ public class BookingTickets {
     private String datetime;
 
     // show object of the show booked
-    private show listOfShows;
+    private Show listOfShows;
 
     // email ID of the customer
     private String email_id;
@@ -32,7 +36,7 @@ public class BookingTickets {
 
     // Booking Constructor
 
-    public BookingTickets(int idCustomer, String booking_id, String booked_movie, int seatnum, String first_seat,
+    public BookingTickets(int idCustomer, String booking_id, String booked_movie, int seatnum, String first_seat, Show show,
             String email_id) {
         this.booked_movie = booked_movie;
         this.booking_id = booking_id;
@@ -43,11 +47,11 @@ public class BookingTickets {
     }
 
     public void getListOfShow() {
-        return ListOfShow;
+        //return ListOfShow;
     }
 
-    public void setShow(show ListOfShow) {
-        this.ListOfShow = ListOfShow;
+    public void setShow(Show ListOfShow) {
+        //this.ListOfShow = ListOfShow;
     }
 
     // gets name of the booked movie and returns it
