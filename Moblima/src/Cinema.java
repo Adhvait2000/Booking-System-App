@@ -1,5 +1,3 @@
-package sc2002;
-
 //import necessary files;
 import java.util.ArrayList;
 
@@ -10,16 +8,18 @@ public class Cinema {
     private int idOfCinema;
     private String cinemaCategory;
     private String nameOfCinema;
+    private String cinemaCode;
     
     //array of the shows;
-    private ArrayList<show> listOfShows;
+    private ArrayList<Show> listOfShows;
     
-    public Cinema(String nameOfCinema, String cinemaCategory, int idOfCinema) {
+    public Cinema(String nameOfCinema, String cinemaCategory, String cinemaCode, int idOfCinema) {
         this.nameOfCinema = nameOfCinema;
         this.idOfCinema = idOfCinema;
         this.cinemaCategory = cinemaCategory;
+        this.cinemaCode = cinemaCode;
         
-        listOfShows=new ArrayList<show>();
+        listOfShows=new ArrayList<Show>();
     }
 
     //get functions;
@@ -37,16 +37,21 @@ public class Cinema {
         return cinemaCategory;
         
     }
+    
+    public String getCinemaCode() {
+        return cinemaCode;
+        
+    }
 
     //display the shows;
-    public ArrayList<show> getCinemaShows(){
+    public ArrayList<Show> getCinemaShows(){
     	return listOfShows;
     }
 
     
     
     //adding a show;
-    public void addaShow(show s) {
+    public void addaShow(Show s) {
     	listOfShows.add(s);
     	
     }

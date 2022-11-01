@@ -3,12 +3,6 @@ import java.util.Calendar;
 /**
  *  * The Class for generating Transaction IDs
  */
-
-class Cinema
-{
-	String code;
-}
-
 public class TransactionID {
 
 	private String TID;
@@ -18,7 +12,7 @@ public class TransactionID {
 	 */
 	public TransactionID(Cinema cinema) {
 
-		createTID(cinema.code);
+		createTID(cinema.getCinemaCode());
 	}
 	
 	/**

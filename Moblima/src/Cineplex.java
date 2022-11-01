@@ -1,9 +1,6 @@
-package project2002;
-
 import java.util.*;
-import project2002.master;
 
-public class Cineplexes { 
+public class Cineplex { 
 	
 	private String nameCineplex; //name of cineplex
     
@@ -11,13 +8,13 @@ public class Cineplexes {
     
     private ArrayList<Cinema> listCinemas; //list of cinemas in each cineplex
 
-    public Cineplexes(String nameCineplex, int idCineplex) { //constructor for the class
+    public Cineplex(String nameCineplex, int idCineplex) { //constructor for the class
         this.nameCineplex = nameCineplex; //name of cineplex
         this.idCineplex = idCineplex; //ID of cinema in a cineplex
         this.listCinemas = new ArrayList<Cinema>();
     }
 
-    public Cineplexes(String nameCineplex, int idCineplex, ArrayList<Cinema> listCinemas) {
+    public Cineplex(String nameCineplex, int idCineplex, ArrayList<Cinema> listCinemas) {
         this.nameCineplex = nameCineplex; //name of cineplex
         this.idCineplex = idCineplex; //ID of cinema in cineplex
         this.listCinemas = listCinemas; //array of all the cinemas in a cineplex

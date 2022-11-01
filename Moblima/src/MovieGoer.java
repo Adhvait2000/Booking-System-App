@@ -1,5 +1,3 @@
-package project2002;
-
 import java.util.*;
 import java.io.*;
 
@@ -11,11 +9,11 @@ public class MovieGoer { //details of movie goers i.e. our customers
     
     private int mobileNumber; //mobile number of customers
     
-    private ArrayList<BookingTicekts> custBookings = new ArrayList<>(); //list of bookings made by a customer
+    private ArrayList<BookingTicket> custBookings = new ArrayList<BookingTicket>(); //list of bookings made by a customer
     
     public MovieGoer() {};
    
-    public MovieGoer(String nameCustomer, int mobileNumber, String email, ArrayList<BookingTicekts> custBookings){ //constructor for the class
+    public MovieGoer(String nameCustomer, int mobileNumber, String email, ArrayList<BookingTicket> custBookings){ //constructor for the class
         this.nameCustomer = nameCustomer; //name of customer
         this.mobileNumber = mobileNumber; //mobile number of customer
         this.custBookings = custBookings; //bookings made by customer
@@ -46,12 +44,12 @@ public class MovieGoer { //details of movie goers i.e. our customers
 	}
 	
 
-	public void setBooking(BookingTickets booking) { //class to add new bookings 
+	public void setBooking(BookingTicket booking) { //class to add new bookings 
 		if(!custBookings.contains(booking)) {
 		custBookings.add(booking);}
 	}
 	
-	public ArrayList<BookingTickets> getCustBookings() { //class to return list of bookings by customer
+	public ArrayList<BookingTicket> getCustBookings() { //class to return list of bookings by customer
 		return custBookings;
 	}
 

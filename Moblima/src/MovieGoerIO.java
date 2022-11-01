@@ -1,5 +1,3 @@
-package project2002;
-
 import java.io.*;
 import java.util.*;
 
@@ -183,24 +181,24 @@ public class MovieGoerIO {
 	    }
 	    
 	  
-	    public BookingTickets createBooking() { //class to create new booking
+	    public BookingTicket createBooking() { //class to create new booking
 	    	
-	    	BookingTickets book = new BookingTickets();	
+	    	BookingTicket book = new BookingTicket();	
 	    	
-	    	book.setCustomerID(customer_id);
+	    	book.setIDCustomer(customer_id);
 	    	book.setBookingID(booking_id);
 	    	book.setFirstSeat(first_seat);
 	    	book.setBookedMovie(booked_movie);
-	    	book.setSeatNum(seat_num);
+	    	book.setNumberOfSeats(seat_num);
 	    	book.setDateTime(date_time);
-	    	book.setEmailID(email_id);
+	    	book.setEmail(email_id);
 	    	
 	    	
 	    	return book;
 	    }
 	    
 	    
-	   public void assignSeatsByMovie(mov movie, int index, String customer_name, int customer_id, String email_id, int mobile_number, String booking_id, int seat_num, String first_seat) throws IOException, Exception {
+	   public void assignSeatsByMovie(Movie movie, int index, String customer_name, int customer_id, String email_id, int mobile_number, String booking_id, int seat_num, String first_seat) throws IOException, Exception {
 	    	
 		   try{
 	    		readBookingsFile(); //read bookings made by customers
@@ -209,7 +207,7 @@ public class MovieGoerIO {
 	    		this.seat_num = seat_num;
 	    		this.booking_id = booking_id;
 	    		
-	    		BookingTickets book = new BookingTickets();
+	    		BookingTicket book = new BookingTicket();
 	    		
 	    		int num = movie_goer.size(); //get total num of movie goers
 	    		int check = 1; //to check if customer has made a previous booking
@@ -239,14 +237,13 @@ public class MovieGoerIO {
 	    			MovieGoer goer = new MovieGoer();
 	    			goer = movie_goer.get(i);
 	    			addBooking(i);
-	    			ArrayList<BookingTicekts> bookingList = new ArrayList<>();
-	    			bookingList = goer.getCustBooking();
+	    			ArrayList<BookingTicket> bookingList = goer.getCustBookings();
 	    			int numOfBookings = bookingList.size();
 	    			
 	    			goer.setBooking(bookingList.get(numOfBookings-1));
 	    		}
 	    	
-	    		ArrayList<show> showList = new ArrayList<>(); //list of shows 
+	    		ArrayList<Show> showList = new ArrayList<>(); //list of shows 
 	    	
 	    		showList = movie.getShows(); //get showtimes for a movie
 	    	
@@ -255,7 +252,7 @@ public class MovieGoerIO {
 	    		int row = firstSeatAlpha - 'a' + 1;
 	    		int first_seat_num = Character.getNumericValue(first_seat.charAt(1));
 	    	
-	    		show show = showList.get(index);
+	    		Show show = showList.get(index);
 	    
 	    	    for(int j=1; j<=seat_num; j++) {
 	    	    	

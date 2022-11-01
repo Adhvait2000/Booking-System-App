@@ -1,5 +1,3 @@
-package sc2002;
-
 //import the necessary files;
 
 import java.util.Scanner;

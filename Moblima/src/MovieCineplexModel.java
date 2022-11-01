@@ -4,11 +4,21 @@ import java.util.ArrayList;
 class Movie
 {
 	String name;
-}
 
-class Cineplex
-{
-	String name;
+	public String getMovieName() {
+		// TODO Auto-generated method stub
+		return "NOT IMPLEMENTED";
+	}
+
+	public String getDirectorName() {
+		// TODO Auto-generated method stub
+		return "NOT IMPLEMENTED";
+	}
+
+	public ArrayList<Show> getShows() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
 /**
@@ -105,9 +115,9 @@ public class MovieCineplexModel {
 	 */
 	public boolean addCineplex(Cineplex cineplex)
 	{
-		if(!cineplexList.containsKey(cineplex.name))
+		if(!cineplexList.containsKey(cineplex.getNameCineplex()))
 		{
-			cineplexList.put(cineplex.name, cineplex);
+			cineplexList.put(cineplex.getNameCineplex(), cineplex);
 			return true;
 		}
 		

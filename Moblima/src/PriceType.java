@@ -1,5 +1,3 @@
-package project2002;
-
 import java.util.*;
 
 //import model.TicketPrice;
@@ -48,6 +46,5 @@ public class PriceType { //class to obtain prices for different types of tickets
 			return priceType.get(7);
 		}
 		
-	}
-
 }
+

@@ -1,5 +1,3 @@
-package sc2002;
-
 //import the necessary files;
 import java.io.PrintWriter;
 import java.io.File;
@@ -7,10 +5,6 @@ import java.util.*;
 import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileWriter;
-
-import model.Cinema;
-import model.Cineplex;
-import model.master;
 
 public class CineplexIO {
 	private static String SEPERATOR = "|";
@@ -34,7 +28,7 @@ public class CineplexIO {
 	                    ArrayList<Cinema> cinRecord2 = new ArrayList<>();
 	                    for (int i = 2; i < var.length; i++) {
 	                    	var1 = var[i].split("[|]");
-	                    	c = new Cinema(var1[0],var[1],Integer.parseInt(var1[2]));
+	                    	c = new Cinema(var1[0],var[1], "XXX", Integer.parseInt(var1[2]));
 	                    	cinRecord2.add(c);
 	                    }
 	                    cinRecord.add(new Cineplex(
@@ -67,20 +61,20 @@ public class CineplexIO {
 	    for (x=0 ; x < store.size() ; x++) {
 				c = (Cineplex)store.get(x);
 				build =  new StringBuilder() ;
-				build.append(c.getCineplexName().trim());
+				build.append(c.getNameCineplex().trim());
 				build.append(spec);
 				
-				build.append(c.getCineplexId());
+				build.append(c.getIDCineplex());
 				build.append(spec);
 				
-				var = c.getCinemaList();
+				var = c.getListCinemas();
 				
 				for(y=0; y<var.size(); y++) {
 					cin = var.get(y);
 					build.append(cin.getCinemaName());
 					build.append("|");
 					
-					build.append(cin.getCinemaClass());
+					build.append(cin.getCinemaCategory());
 					build.append("|");
 					
 					build.append(String.valueOf(cin.getCinemaID()));

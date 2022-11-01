@@ -1,10 +1,7 @@
 import java.io.*;
 import java.util.List;
 
-class Show {
-}
-
-public class BookingTickets {
+public class BookingTicket {
     // customer id of the person who has made the booking
 
     private int idCustomer;
@@ -30,12 +27,12 @@ public class BookingTickets {
     // email ID of the customer
     private String email_id;
 
-    public BookingTickets() {
+    public BookingTicket() {
     };
 
     // Booking Constructor
 
-    public BookingTickets(int idCustomer, String booking_id, String booked_movie, int seatnum, String first_seat,
+    public BookingTicket(int idCustomer, String booking_id, String booked_movie, int seatnum, String first_seat,
             Show show,
             String email_id) {
         this.booked_movie = booked_movie;
@@ -53,11 +50,11 @@ public class BookingTickets {
     // public void setShow(Show ListOfShow) {
     // this.ListOfShow = ListOfShow;
 
-    public void getbookedShow() {
+    public Show getbookedShow() {
         return bookedShow;
     }
 
-    public void setShow(show bookedShow) {
+    public void setShow(Show bookedShow) {
         this.bookedShow = bookedShow;
 
     }
@@ -84,22 +81,22 @@ public class BookingTickets {
 
     // setting them
 
-    public void setBookedMovie() {
+    public void setBookedMovie(String booked_movie) {
         this.booked_movie = booked_movie;
     }
 
     // sets the ID of the booked movie
-    public void setBookingID() {
+    public void setBookingID(String booking_id) {
         this.booking_id = booking_id;
     }
 
     // sets the booked number of seats
-    public void setNumberOfSeats() {
+    public void setNumberOfSeats(int seatnum) {
         this.seatnum = seatnum;
     }
 
     // sets the first and last seats
-    public void setFirstSeat() {
+    public void setFirstSeat(String first_seat) {
         this.first_seat = first_seat;
     }
 
@@ -108,8 +105,8 @@ public class BookingTickets {
         return idCustomer;
     }
 
-    public void setIDCustomer() {
-        this.idCustomer = idCustomer;
+    public void setIDCustomer(int customer_id) {
+        this.idCustomer = customer_id;
     }
 
     // getting and setting email ID
@@ -117,7 +114,7 @@ public class BookingTickets {
         return email_id;
     }
 
-    public void setEmail() {
+    public void setEmail(String email_id) {
         this.email_id = email_id;
     }
 
@@ -126,7 +123,7 @@ public class BookingTickets {
         return datetime;
     }
 
-    public void setDateTime() {
+    public void setDateTime(String datetime) {
         this.datetime = datetime;
     }
 

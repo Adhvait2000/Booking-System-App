@@ -1,10 +1,7 @@
-package sc2002;
-
 //import necessary files;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import controller.GetPrice;
 
 public class MovieTicket {
 
@@ -33,32 +30,32 @@ public class MovieTicket {
 	
 	//function to calculate price;
 	private double computePrice() {
-		GetPrice displayprice = new GetPrice();
+		PriceType displayprice = new PriceType();
 		
 		//if 3D, price should be added;
 		if(is3D) 
-			Price = Price + displayprice.get3DPrice();
+			Price = Price + displayprice.get3DPricing();
 		
 		//price changes according to type of cinema;
 		if(typeOfCinema.equals("Standard"))
-			Price = Price + displayprice.getStandardPrice();
+			Price = Price + displayprice.getStandardPricing();
 		else if(typeOfCinema.equals("Premium"))
-			Price = Price + displayprice.getPremiumPrice();
+			Price = Price + displayprice.getPremiumPricing();
 		else if(typeOfCinema.equals("Platinum"))
-			Price = Price + displayprice.getPlatinumPrice();
+			Price = Price + displayprice.getPlatinumPricing();
 		
 		//child or senior have discounts accordingly;
 		if(movieGoerClass == ("Child"))
-			Price = Price - displayprice.getChildPrice();
+			Price = Price - displayprice.getChildPricing();
 		else if(movieGoerClass ==("SeniorCitizen"))
-			Price = Price - displayprice.getSeniorCitizenPrice();
+			Price = Price - displayprice.getSeniorCitizenPricing();
 		
 		//prices increase if holiday;
 		if(holsOrWeekday)
-			Price = Price + displayprice.getPublicHolidayPrice();
+			Price = Price + displayprice.getPublicHolidayPricing();
 		
 		//After GST;
-		Price = Price + displayprice.getGSTPrice() * Price;
+		Price = Price + displayprice.getGSTPricing() * Price;
 		return Price;
 	}
 	
