@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.List;
 
-class Show
-{
+class Show {
 }
 
 public class BookingTickets {
@@ -26,7 +25,7 @@ public class BookingTickets {
     private String datetime;
 
     // show object of the show booked
-    private Show listOfShows;
+    private Show bookedShow;
 
     // email ID of the customer
     private String email_id;
@@ -36,7 +35,8 @@ public class BookingTickets {
 
     // Booking Constructor
 
-    public BookingTickets(int idCustomer, String booking_id, String booked_movie, int seatnum, String first_seat, Show show,
+    public BookingTickets(int idCustomer, String booking_id, String booked_movie, int seatnum, String first_seat,
+            Show show,
             String email_id) {
         this.booked_movie = booked_movie;
         this.booking_id = booking_id;
@@ -46,12 +46,20 @@ public class BookingTickets {
         this.setShow(show);
     }
 
-    public void getListOfShow() {
-        //return ListOfShow;
+    // public void getListOfShow() {
+    // return ListOfShow;
+    // }
+
+    // public void setShow(Show ListOfShow) {
+    // this.ListOfShow = ListOfShow;
+
+    public void getbookedShow() {
+        return bookedShow;
     }
 
-    public void setShow(Show ListOfShow) {
-        //this.ListOfShow = ListOfShow;
+    public void setShow(show bookedShow) {
+        this.bookedShow = bookedShow;
+
     }
 
     // gets name of the booked movie and returns it
