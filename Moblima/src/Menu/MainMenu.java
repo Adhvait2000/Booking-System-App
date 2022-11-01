@@ -26,11 +26,14 @@ public class MainMenu extends MenuPage {
 		switch(userType)
 		{
 		case USER_ADMIN:
-			nextPage = new AdminPage();
+			nextPage = new AdminLoginPage();
 			break;
 		case USER_CUSTOMER:
 			nextPage = new CustomerPage();
 			break;
+		default:
+			endMenu = true;
+			return;
 		}
 		
 		goNext = true;

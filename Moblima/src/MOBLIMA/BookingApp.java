@@ -9,7 +9,7 @@ public class BookingApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		menuStack = new Stack<MenuPage>();
-		menuStack.push(new MainMenu());
+		menuStack.push(new AdminPage()); //
 		menuStack.peek().Initialize();
 		
 		while(!menuStack.isEmpty())
@@ -24,7 +24,8 @@ public class BookingApp {
 			{
 				MenuPage prevMenu = menuStack.pop();
 				prevMenu.End();
-				menuStack.peek().goNext = false;
+				if(!menuStack.isEmpty())
+					menuStack.peek().goNext = false;
 			}
 		}
 		
