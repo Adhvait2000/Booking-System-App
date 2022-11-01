@@ -1,3 +1,4 @@
+package MOBLIMA;
 import java.util.*;
 
 public class Cineplex { 

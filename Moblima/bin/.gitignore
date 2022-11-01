@@ -4,6 +4,8 @@
 /Cinema.class
 /Cineplex.class
 /CineplexIO.class
+/Menu/
+/MenuPage.class
 /Movie.class
 /MovieCineplexModel.class
 /MovieGoer.class
@@ -16,3 +18,4 @@
 /TransactionID.class
 /UpdateTicketPrices.class
 /ValidInputManager.class
+/MOBLIMA/
