@@ -7,7 +7,7 @@ public class AdminLoginPage extends MenuPage {
 	@Override
 	public void Initialize() {
 		// TODO Auto-generated method stub
-
+		endWhenGoNext = true;
 	}
 
 	@Override

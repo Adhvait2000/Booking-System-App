@@ -1,6 +1,6 @@
 
 
-package MOBLIMA
+package MOBLIMA;
 
 public enum LoginStatus
 { SUCCESSFUL("Login Successful"),FAILED("Login Failed, please enter valid credentials");

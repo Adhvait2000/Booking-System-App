@@ -3,6 +3,7 @@ package Menu;
 public abstract class MenuPage {
 	MenuPage nextPage;
 	
+	public boolean endWhenGoNext = false;
 	public boolean goNext = false;
 	public boolean endMenu = false;
 	

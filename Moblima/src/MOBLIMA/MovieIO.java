@@ -1,4 +1,4 @@
-package MOBLIMA
+package MOBLIMA;
 
 import java.util.*;
 import java.io.*;
@@ -275,14 +275,14 @@ public class MovieIO
             Show s = (Show)shows.get(i);
             StringBuilder st = new StringBuilder();
             
-            st.append(s.getDateTime().trim());
+            st.append(s.getTimenDate().trim());
             st.append(SEPERATOR);
             st.append(String.valueOf(s.getCineplexID()).trim());
             st.append(SEPERATOR);
-            st.append(String.valueOf(s.getScreenNum()).trim());
+            st.append(String.valueOf(s.getScreenNumber()).trim());
             st.append(SEPERATOR);
             
-            int[][] temp2 = s.getSeats();
+            int[][] temp2 = s.getSeat();
             for(int j=0;j<9;j++)
             {
                 for(int k=0;k<9;k++)

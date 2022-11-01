@@ -43,7 +43,7 @@ public class Show { // figure out how to implement extends movie
 	
 	//printing the seats;
 	public void printSeats() {
-		System.out.printf("Movie %s by Director %s\n",mov.getMovieName(),mov.getDirectorName());
+		System.out.printf("Movie %s by Director %s\n",mov.getMovieName(),mov.getDirector());
 		System.out.printf("Show Location: Cineplex ID: %d, Screen Number: %d\n",cineplexID+1,screenNumber+1);
 		System.out.printf("Show Time: %s\n\n\n",timenDate);
 		System.out.printf("      1 2 3   4 5 6   7 8 9\n");

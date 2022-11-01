@@ -2,26 +2,6 @@ package MOBLIMA;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-class Movie
-{
-	String name;
-
-	public String getMovieName() {
-		// TODO Auto-generated method stub
-		return "NOT IMPLEMENTED";
-	}
-
-	public String getDirectorName() {
-		// TODO Auto-generated method stub
-		return "NOT IMPLEMENTED";
-	}
-
-	public ArrayList<Show> getShows() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-}
-
 /**
  * The Primary Model Class for storing movie and cineplex data
  * <p>
@@ -63,9 +43,9 @@ public class MovieCineplexModel {
 	 */
 	public boolean addMovie(Movie movie)
 	{
-		if(!movieList.containsKey(movie.name))
+		if(!movieList.containsKey(movie.getMovieName()))
 		{
-			movieList.put(movie.name, movie);
+			movieList.put(movie.getMovieName(), movie);
 			return true;
 		}
 		

@@ -1,11 +1,7 @@
-package MOBLIMA
+package MOBLIMA;
 
 import java.io.IOException;
 import java.util.*;
-import controller.movieIO;
-import Master;
-import Cineplex;
-import Cinema;
 
 public class Movie
  {
@@ -141,7 +137,7 @@ public class Movie
         }
     }
     
-   public void readShowDetails(Master Master)
+   public void readShowDetails(MovieCineplexModel movieCineplexModel)
     {
         Show temp;
         ArrayList<Cineplex> tempCineplexArray;
@@ -157,11 +153,11 @@ public class Movie
           for(int i=0;i<Shows.size();i++) 
           {
             temp = Shows.get(i);
-            tempCineplexArray = Master.getCineplexes();
+            tempCineplexArray = movieCineplexModel.GetCineplexes();
             tempCineplex = tempCineplexArray.get(temp.getCineplexID());
-            tempCinemaArray = tempCineplex.getCinemaList();
-            tempCinema = tempCinemaArray.get(temp.getScreenNum());
-            tempCinema.addShow(temp);
+            tempCinemaArray = tempCineplex.getListCinemas();
+            tempCinema = tempCinemaArray.get(temp.getScreenNumber());
+            tempCinema.addaShow(temp);
           }
         }
         catch(IOException e) 
@@ -195,8 +191,8 @@ public class Movie
         public int compare(Movie m1, Movie m2) 
         {
 
-           double rating1 = m1.getTotalRating();
-           double rating2 = m2.getTotalRating();
+           double rating1 = m1.getTotalRatings();
+           double rating2 = m2.getTotalRatings();
 
            return (int) rating1- (int) rating2;
         } 
@@ -208,29 +204,29 @@ public class Movie
       public int compare(Movie m1, Movie m2)
       {
 
-        int ts1 = m1.getTsales();
-        int ts2 = m2.getTsales();
+        int ts1 = m1.getTSales();
+        int ts2 = m2.getTSales();
 
         return ts1-ts2; 
        } 
     };
     
-    public void deleteShow(Master m, int ind)
+    public void deleteShow(MovieCineplexModel m, int ind)
     {
         Show s = Shows.get(ind);
-        ArrayList<Cineplex> temp = m.getCineplexes();
-	ArrayList<Cinema> temp2 = temp.get(s.getCineplexID()).getCinemaList();
-	ArrayList<Show> temp3 = temp2.get(s.getScreenNum()).getCinemaShows();
+        ArrayList<Cineplex> temp = m.GetCineplexes();
+	ArrayList<Cinema> temp2 = temp.get(s.getCineplexID()).getListCinemas();
+	ArrayList<Show> temp3 = temp2.get(s.getScreenNumber()).getCinemaShows();
 	temp3.remove(s);
 	Shows.remove(ind);
         
     }
     
-    public void deleteShow(Master m, Show s) 
+    public void deleteShow(MovieCineplexModel m, Show s) 
     {
-	ArrayList<Cineplex> temp = m.getCineplexes();
-	ArrayList<Cinema> temp2 = temp.get(s.getCineplexID()).getCinemaList();
-	ArrayList<show> temp3 = temp2.get(s.getScreenNum()).getCinemaShows();
+	ArrayList<Cineplex> temp = m.GetCineplexes();
+	ArrayList<Cinema> temp2 = temp.get(s.getCineplexID()).getListCinemas();
+	ArrayList<Show> temp3 = temp2.get(s.getScreenNumber()).getCinemaShows();
 	temp3.remove(s);
 	Shows.remove(s);
     }
