@@ -30,11 +30,31 @@ class Movie
  * @author ArunEzekiel
  */
 public class MovieCineplexModel {
+	private static MovieCineplexModel instance = null;
+	
 	private HashMap<String, Movie> movieList;
 	private HashMap<String, Cineplex> cineplexList;
 	
 	private String moviesDir = "data/movieInfo.dat";
 	private String cineplexDir = "data/cineplexInfo.dat";
+	
+	public static MovieCineplexModel getInstance()
+	{
+		if(instance == null)
+			instance = new MovieCineplexModel();
+		
+		if(!instance.readCineplexes())
+		{
+			System.err.println("[MovieCineplexModel] Error: Unable to read Cineplexes");
+		}
+		
+		if(!instance.readMovies())
+		{
+			System.err.println("[MovieCineplexModel] Error: Unable to read Movies");
+		}
+		
+		return instance;
+	}
 	
 	/**
 	 * This method adds new movies into the HashMap movielist
@@ -67,6 +87,16 @@ public class MovieCineplexModel {
 		return false;
 	}
 	
+	public boolean readMovies()
+	{
+		return false;
+	}
+	
+	public boolean saveMovies()
+	{
+		return false;
+	}
+	
 	/**
 	 * This method returns the hashmap in an arraylist form for movie data processing
 	 * @return ArrayList of movies in movieList
@@ -80,7 +110,7 @@ public class MovieCineplexModel {
 	 * This method sets the movie list to the given one
 	 * @param aMovieList
 	 */
-	public void SetMovies(ArrayList<Movie> aMovieList)
+	public void setMovies(ArrayList<Movie> aMovieList)
 	{
 		
 	}
@@ -129,8 +159,18 @@ public class MovieCineplexModel {
 	 * This method sets the cineplex list to the given one
 	 * @param aCineplexList
 	 */
-	public void SetCineplex(ArrayList<Cineplex> aCineplexList)
+	public void setCineplex(ArrayList<Cineplex> aCineplexList)
 	{
 		
+	}
+	
+	public boolean readCineplexes()
+	{
+		return false;
+	}
+	
+	public boolean saveCineplexes()
+	{
+		return false;
 	}
 }

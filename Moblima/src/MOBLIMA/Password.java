@@ -3,8 +3,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.security.NoSuchAlgorithmException;
 import java.security.MessageDigest;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Password {
     // storing all the passwords
@@ -69,6 +72,22 @@ public class Password {
             }
         }
         return valid;
+    }
+    
+    public static void addPassword(String password) throws IOException
+    {
+    	String hashedPass = hashPassword(password);
+    	Scanner scanner = new Scanner(System.in);
+		
+    	String fileDir = "data/passwords.txt";
+		
+		FileWriter file_write = new FileWriter(fileDir, true); 
+		BufferedWriter writer = new BufferedWriter(file_write);
+		
+		writer.newLine();
+		writer.write(hashedPass);
+		writer.close();
+		
     }
 
 }

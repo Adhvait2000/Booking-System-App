@@ -1,4 +1,9 @@
 package Menu;
+import MOBLIMA.MovieCineplexModel;
+
+import java.util.ArrayList;
+
+import MOBLIMA.Cineplex;
 
 public class CustomerPage extends MenuPage {
 	static final int MOVIES_DETAILS = 1;
@@ -32,6 +37,7 @@ public class CustomerPage extends MenuPage {
 		case MOVIES_DETAILS:
 			break;
 		case SEAT_AVAILABILITY:
+			SeatAvailabilityUpdate();
 			break;
 		case PURCHASE_TICKETS:
 			break;
@@ -47,10 +53,16 @@ public class CustomerPage extends MenuPage {
 		}
 	}
 
-	public void ListAllMovies()
+	public void SeatAvailabilityUpdate()
 	{
-		
-		
+		ArrayList<Cineplex> cineplexes;
+		try
+		{
+			cineplexes = MovieCineplexModel.getInstance().GetCineplexes();
+		}catch(Exception e)
+		{
+			System.err.println(e.getMessage());
+		}
 	}
 	
 	@Override
