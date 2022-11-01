@@ -133,7 +133,7 @@ public class Movie
     
     public void saveShowDetails()
     {
-        movieIO m = new movieIO();
+        MovieIO m = new MovieIO();
         try {
         m.saveShows("data/Shows/"+movie+".txt", Shows);
         }catch(IOException e) {
@@ -148,7 +148,7 @@ public class Movie
         ArrayList<Cinema> tempCinemaArray;
         Cineplex tempCineplex;
         Cinema tempCinema;
-        movieIO m = new movieIO();
+        MovieIO m = new MovieIO();
         try 
         {
           ArrayList arr = m.readShows(this,"data/Shows/"+movie+".txt");
