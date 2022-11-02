@@ -35,7 +35,6 @@ public class AdminLoginPage extends MenuPage {
 	@Override
 	public void End() {
 		// TODO Auto-generated method stub
-
+		
 	}
-
 }

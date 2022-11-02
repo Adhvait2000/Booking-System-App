@@ -15,6 +15,7 @@ public class BookingApp {
 		while(!menuStack.isEmpty())
 		{
 			MenuPage currentMenu = menuStack.peek();
+			System.out.println("");
 			currentMenu.Update();
 			
 			// if goNext Flag is set to true, go to next page

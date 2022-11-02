@@ -21,7 +21,7 @@ public class MainMenu extends MenuPage {
 			);
 		
 		int userType = 0; // 0 = NOT SET, 1 = Admin, 2 = Customer	
-		userType = ValidInputManager.GetInt();
+		userType = ValidInputManager.GetIntWithinRange(1, 4);
 		
 		switch(userType)
 		{
@@ -42,7 +42,6 @@ public class MainMenu extends MenuPage {
 	@Override
 	public void End() {
 		// TODO Auto-generated method stub
-
+		
 	}
-
 }

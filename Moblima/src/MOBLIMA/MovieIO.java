@@ -177,8 +177,8 @@ public class MovieIO
                 for(int j=0;j<temp.length;j++)
                 {
                     st.append(temp[j]);
-                    if(j<temp.length-1)
-                    st.append(",");
+                    if(j<temp.length)
+                    	st.append(",");
                 }
             }
             st.append(SEPERATOR);
@@ -191,7 +191,7 @@ public class MovieIO
                 for(int j=0;j<temp2.length;j++)
                 {
                     st.append(String.valueOf(temp2[j]));
-                    if(j<temp.length-1)
+                    if(j<temp.length)
                     st.append(",");
                 }
             }
@@ -266,7 +266,7 @@ public class MovieIO
     public static void saveShows(String filename, List shows) throws IOException
     {
         if(shows==null)
-        return;
+        	return;
         
         List alw = new ArrayList();
         

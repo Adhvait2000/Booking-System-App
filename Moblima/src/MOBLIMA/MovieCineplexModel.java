@@ -15,22 +15,24 @@ public class MovieCineplexModel {
 	private HashMap<String, Movie> movieList;
 	private HashMap<String, Cineplex> cineplexList;
 	
-	private String moviesDir = "data/movieInfo.dat";
-	private String cineplexDir = "data/cineplexInfo.dat";
+	private String moviesDir = "data/movies.txt";
+	private String cineplexDir = "data/cineplex.txt";
 	
 	public static MovieCineplexModel getInstance()
 	{
 		if(instance == null)
+		{
 			instance = new MovieCineplexModel();
 		
-		if(!instance.readCineplexes())
-		{
-			System.err.println("[MovieCineplexModel] Error: Unable to read Cineplexes");
-		}
-		
-		if(!instance.readMovies())
-		{
-			System.err.println("[MovieCineplexModel] Error: Unable to read Movies");
+			if(!instance.readCineplexes())
+			{
+				System.err.println("[MovieCineplexModel] Error: Unable to read Cineplexes");
+			}
+			
+			if(!instance.readMovies())
+			{
+				System.err.println("[MovieCineplexModel] Error: Unable to read Movies");
+			}
 		}
 		
 		return instance;
@@ -69,11 +71,30 @@ public class MovieCineplexModel {
 	
 	public boolean readMovies()
 	{
+		MovieIO temp = new MovieIO();
+		try
+		{
+			this.setMovies(temp.readMovie(moviesDir));
+			return true;
+		}
+		catch(Exception e)
+		{
+			System.out.println("[MovieCineplexModel] "+e.getMessage());
+		}
 		return false;
 	}
 	
 	public boolean saveMovies()
 	{
+		MovieIO temp = new MovieIO();
+		try
+		{
+			temp.saveMovie(moviesDir, this.GetMovies());
+		}
+		catch(Exception e)
+		{
+			System.out.println("[MovieCineplexModel] " + e.getMessage());
+		}
 		return false;
 	}
 	
@@ -92,7 +113,17 @@ public class MovieCineplexModel {
 	 */
 	public void setMovies(ArrayList<Movie> aMovieList)
 	{
+		if(movieList != null)
+			movieList.clear();
+		else
+			movieList = new HashMap<String, Movie>();
 		
+		for(int i = 0; i < aMovieList.size(); i++)
+		{
+			Movie temp = aMovieList.get(i);
+			temp.readShowDetails(this);
+			movieList.put(temp.getMovieName(), temp);
+		}
 	}
 	
 	/**
@@ -141,16 +172,47 @@ public class MovieCineplexModel {
 	 */
 	public void setCineplex(ArrayList<Cineplex> aCineplexList)
 	{
+		if(cineplexList != null)
+			cineplexList.clear();
+		else
+			cineplexList = new HashMap<String, Cineplex>();
 		
+		for(int i = 0; i < aCineplexList.size(); i++)
+		{
+			Cineplex temp = aCineplexList.get(i);
+			cineplexList.put(temp.getNameCineplex(), temp);
+		}
 	}
 	
 	public boolean readCineplexes()
 	{
-		return false;
+		CineplexIO temp = new CineplexIO();
+		setCineplex(temp.accessCineplex());
+		return true;
 	}
 	
 	public boolean saveCineplexes()
 	{
+		CineplexIO temp = new CineplexIO();
+		try
+		{
+			temp.cinStore(this.GetCineplexes());
+			return true;
+		}
+		catch(Exception e)
+		{
+			System.err.println("[MovieCineplexModel] " + e.getMessage());
+		}
+		return false;
+	}
+	
+	public boolean updateMovie(String movieName, Movie movie)
+	{
+		if(movieList.containsKey(movieName))
+		{
+			movieList.replace(movieName, movie);
+			return true;
+		}
 		return false;
 	}
 }
