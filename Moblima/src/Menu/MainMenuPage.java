@@ -1,6 +1,6 @@
 package Menu;
 
-public class MainMenu extends MenuPage {
+public class MainMenuPage extends MenuPage {
 	static final int USER_ADMIN = 1;
 	static final int USER_CUSTOMER = 2;
 	@Override

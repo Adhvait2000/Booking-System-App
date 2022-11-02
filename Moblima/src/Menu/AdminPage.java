@@ -31,6 +31,8 @@ public class AdminPage extends MenuPage {
 		switch(choice)
 		{
 		case CRU_MOVIELISTING:
+			nextPage = new CreateRemoveUpdateMovieListing();
+			goNext = true;
 			break;
 		case CRU_CINEMASHOWTIMES:
 			break;
@@ -38,9 +40,12 @@ public class AdminPage extends MenuPage {
 			AddNewAdminUpdate();
 			break;
 		case CONFIGURE_SETTINGS:
-			break;
+			this.nextPage = new SystemSettingsPage();
+			goNext = true;
+			return;
 		case 5:
 			endMenu = true;
+			return;
 		}
 
 	}

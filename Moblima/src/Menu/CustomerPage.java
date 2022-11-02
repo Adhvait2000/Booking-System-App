@@ -148,6 +148,7 @@ public class CustomerPage extends MenuPage {
 		{
 			return;
 		}
+		
 		Movie chosenMovie = movieList.get(movieChoice-1);
 		System.out.println("");
 		System.out.println("Review or Rating");
@@ -164,7 +165,6 @@ public class CustomerPage extends MenuPage {
 			System.out.printf("...Please input your review: \n");
 			String review = ValidInputManager.GetString();
 			chosenMovie.writeReview(review);
-			//MovieCineplexModel.getInstance().updateMovie(chosenMovie.getMovieName(), chosenMovie);
 			MovieCineplexModel.getInstance().saveMovies();
 			System.out.println("...Review Added!");
 			return;
@@ -173,7 +173,6 @@ public class CustomerPage extends MenuPage {
 			System.out.printf("...Please input your rating: ");
 			double rating = ValidInputManager.GetDoubleWithinRange(0, 5);
 			chosenMovie.giveRating(rating);
-			//MovieCineplexModel.getInstance().updateMovie(chosenMovie.getMovieName(), chosenMovie);
 			MovieCineplexModel.getInstance().saveMovies();
 			System.out.println("...Rating Added!");
 			return;

@@ -77,7 +77,7 @@ public class SelectMoviePage extends MenuPage {
 		{
 			for(int i = 0; i < cast.length; i++)
 			{
-				if(cast[i].equals("null"))
+				if(cast[i] == null || cast[i].equals("null"))
 					break;
 				System.out.printf("......%d) " + cast[i] + "\n", i+1);
 			}
