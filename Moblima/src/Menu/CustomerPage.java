@@ -3,6 +3,7 @@ import MOBLIMA.MovieCineplexModel;
 import MOBLIMA.Movie;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import MOBLIMA.Cineplex;
 import MOBLIMA.Show;
@@ -51,8 +52,10 @@ public class CustomerPage extends MenuPage {
 		case BOOKING_HISTORY:
 			break;
 		case TOP_RANKING:
+			TopRankingUpdate();
 			break;
 		case ALL_CINEPLEX:
+			ListAllCineplexesUpdate();
 			break;
 		case WRITEREVIEWRATING:
 			ReviewRatingUpdate();
@@ -175,13 +178,31 @@ public class CustomerPage extends MenuPage {
 			System.out.println("...Rating Added!");
 			return;
 		}
+	}
+	
+	public void TopRankingUpdate()
+	{
+		System.out.println("Top Rankings");
+		ArrayList<Movie> movies = MovieCineplexModel.getInstance().GetMovies();
 		
+		System.out.println("...Top Ticket Sales");
+		Collections.sort(movies, Movie.topticketsales);
+		for(int i= movies.size() -1 ; i >=0 ; i--)
+			System.out.println("......" + movies.get(i).getMovieName() + ": " + movies.get(i).getTSales());
 		
-		
-		
-		
-		
-		
+		System.out.println("...Top Ratings");
+		Collections.sort(movies, Movie.topratings);
+		for(int i= movies.size() -1 ; i >=0 ; i--)
+			System.out.println("...... " + movies.get(i).getMovieName() + ": " + movies.get(i).getTotalRatings());		
+	}
+	
+	public void ListAllCineplexesUpdate()
+	{
+		System.out.println("List All Cineplexes");
+ 		ArrayList<Cineplex> Cineplexes = MovieCineplexModel.getInstance().GetCineplexes(); 	
+
+        for(int i = 0; i < Cineplexes.size(); i++)
+        	System.out.printf("%d) " + Cineplexes.get(i).getNameCineplex() + "\n",i+1);
 	}
 
 	@Override
