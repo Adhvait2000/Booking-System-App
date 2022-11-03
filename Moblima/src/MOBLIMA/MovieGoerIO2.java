@@ -5,7 +5,7 @@ import java.util.*;
 
 //import model.*;
 
-public class MovieGoerIO {
+public class MovieGoerIO2 {
 
 	    private File text_file = new File("data/movie_goers.txt"); //access file containing list of movie goers
 	    
@@ -33,7 +33,7 @@ public class MovieGoerIO {
 	    
 	    public int [][] seat_pos = new int[9][9]; //seats in a cinema
 	    
-	    public MovieGoerIO() {}; //constructor for the class
+	    public MovieGoerIO2() {}; //constructor for the class
 
 	    public void previousBookingCount() throws IOException, Exception { //class to count previous bookings made by customers
 	    	
@@ -260,7 +260,10 @@ public class MovieGoerIO {
 	    	    	show.assignSeat(row-1, j+first_seat_num-2);
 	    	    	
 	    	    }  
-	    	    	
+	    	    
+	    	    //get show time for the movie
+	    	    String timing = show.getTimenDate(); 	
+	    	    
 	    	    for(i=0; i<num; i++) {
 	    			
 	    			int custID = movie_goer.get(i).getIDCustomer();
