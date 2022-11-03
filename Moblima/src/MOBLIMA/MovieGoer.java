@@ -4,7 +4,7 @@ import java.io.*;
 
 public class MovieGoer { //details of movie goers i.e. our customers
 	
-	private int idCustomer; //id of customer
+	private String emailCustomer; //email address of customer
 	
 	private String nameCustomer; //name of customer
     
@@ -36,12 +36,12 @@ public class MovieGoer { //details of movie goers i.e. our customers
 		return mobileNumber;
 	}
 	
-	public int getIDCustomer() { //class to get id of customer
-		return idCustomer;
+	public int getEmailCustomer() { //class to get email of customer
+		return emailCustomer;
 	}
 
-	public void setIDCustomer(int idCustomer) { //class to set id of customer
-		this.idCustomer = idCustomer;
+	public void setEmailCustomer(String emailCustomer) { //class to set email address of customer
+		this.emailCustomer = emailCustomer;
 	}
 	
 
