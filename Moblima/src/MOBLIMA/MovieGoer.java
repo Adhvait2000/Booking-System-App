@@ -36,7 +36,7 @@ public class MovieGoer { //details of movie goers i.e. our customers
 		return mobileNumber;
 	}
 	
-	public int getEmailCustomer() { //class to get email of customer
+	public String getEmailCustomer() { //class to get email of customer
 		return emailCustomer;
 	}
 

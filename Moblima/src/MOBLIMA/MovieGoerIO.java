@@ -66,7 +66,7 @@ public class MovieGoerIO {
 	    			if(str != null) { //for each line in the customer file, retrieve details of each booking and update attributes
 	    				
 	    				String[] list = str.split("[|]"); //each attribute is split by | in a line
-	    				this.emailCustomer = Integer.parseInt(list[0]);
+	    				this.emailCustomer = list[0];
 	    				this.booking_id = list[1];
 	    				this.customer_name = list[2];
 	    				this.mobile_number = Integer.parseInt(list[3]);
@@ -182,7 +182,7 @@ public class MovieGoerIO {
 	    	
 	    	BookingTicket book = new BookingTicket();	
 	    	
-	    	book.setEmailCustomer(emailCustomer);
+	    	book.setEmail(emailCustomer);
 	    	book.setBookingID(booking_id);
 	    	book.setFirstSeat(first_seat);
 	    	book.setBookedMovie(booked_movie);

@@ -28,7 +28,6 @@ public class CreateRemoveUpdateMovieShowtimes extends MenuPage {
         int select = ValidInputManager.GetIntWithinRange(1, 4);
 
         switch (select) {
-
             case 1:
                 ArrayList<Movie> movies = new ArrayList<Movie>();
                 int a;
@@ -164,6 +163,9 @@ public class CreateRemoveUpdateMovieShowtimes extends MenuPage {
 
                     movie.deleteShow(movieCineplexModel, select);
                 }
+            case 3:
+            	this.endMenu = true;
+            	break;
         }
     }
 

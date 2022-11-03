@@ -43,6 +43,7 @@ public class AdminPage extends MenuPage {
 			case CONFIGURE_SETTINGS:
 				this.nextPage = new SystemSettingsPage();
 				goNext = true;
+					
 				return;
 			case 5:
 				endMenu = true;
