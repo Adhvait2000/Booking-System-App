@@ -7,21 +7,21 @@ import java.util.Scanner;
 
 import MOBLIMA.*;
 
-public class CreateRemoveUpdateMovieListing extends MenuPage{
+public class CreateRemoveUpdateMovieListing extends MenuPage {
+
     private static MovieCineplexModel movieCineplexModel;
 
     // initializing master class which calls the backend of the application
     @Override
     public void Initialize() {
-    	// TODO Auto-generated method stub
-    	movieCineplexModel = MovieCineplexModel.getInstance();
+        // TODO Auto-generated method stub
+        movieCineplexModel = MovieCineplexModel.getInstance();
     }
 
-
-	@Override
-	public void Update() {
-		// TODO Auto-generated method stub
-		System.out.println("Create/Remove/Update Movie Listings");
+    @Override
+    public void Update() {
+        // TODO Auto-generated method stub
+        System.out.println("Create/Remove/Update Movie Listings");
         Scanner sc = new Scanner(System.in);
 
         ArrayList<Movie> movies = new ArrayList<Movie>();
@@ -31,12 +31,12 @@ public class CreateRemoveUpdateMovieListing extends MenuPage{
                 + "...2. Update a Movie Listing\n"
                 + "...3. Remove a Movie Listing\n"
                 + "...4. Back");
-        
-        int choice = ValidInputManager.GetIntWithinRange(1,  5);
+
+        int choice = ValidInputManager.GetIntWithinRange(1, 5);
 
         switch (choice) {
             case 1:
-            	System.out.println("Create new movie listing");
+                System.out.println("Create new movie listing");
                 String name, director, showStatus = null, Synopsis;
                 String[] Cast = new String[5];
 
@@ -54,12 +54,12 @@ public class CreateRemoveUpdateMovieListing extends MenuPage{
                 Synopsis = ValidInputManager.GetString();
 
                 System.out.println("...Enter the number of cast members in the movie (Max 5 cast members)");
-                int count = ValidInputManager.GetIntWithinRange(1,  6);
+                int count = ValidInputManager.GetIntWithinRange(1, 6);
 
                 for (i = 0; i < count; i++) {
                     System.out.printf("...Enter the name of cast members %d\n", (i + 1));
                     Cast[i] = ValidInputManager.GetString();
-                    //System.out.println("");
+                    // System.out.println("");
                 }
 
                 String[] review = new String[0];
@@ -83,12 +83,12 @@ public class CreateRemoveUpdateMovieListing extends MenuPage{
                 }
 
                 System.out.print("Please select a movie number: ");
-                int movie_num = ValidInputManager.GetIntWithinRange(1,  movies.size()+1);
+                int movie_num = ValidInputManager.GetIntWithinRange(1, movies.size() + 1);
 
                 System.out.print("Current Status of the Movie: ");
 
                 System.out.println("Enter new status of the Moive (COMING_SOON, PREVIEW, NOW_SHOWING): ");
-           
+
                 String newStatus = ValidInputManager.GetString();
 
                 movies.get(movie_num - 1).setShowingStatus(newStatus);
@@ -126,14 +126,14 @@ public class CreateRemoveUpdateMovieListing extends MenuPage{
                 break;
 
             case 4:
-            	this.endMenu = true;
-            	return;
+                this.endMenu = true;
+                return;
         }
     }
 
-	@Override
-	public void End() {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void End() {
+        // TODO Auto-generated method stub
+
+    }
 }
