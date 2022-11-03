@@ -15,9 +15,7 @@ public class MovieGoerIO {
 	    
 	    private int mobile_number;
 	    
-	    private String email_id; //customer's email id
-	    
-	    private int customer_id; //id of customer
+	    private String emailCustomer; //customers' email as id
 	    
 	    private String booking_id; //booking id of a particular booking 
 	  
@@ -68,15 +66,14 @@ public class MovieGoerIO {
 	    			if(str != null) { //for each line in the customer file, retrieve details of each booking and update attributes
 	    				
 	    				String[] list = str.split("[|]"); //each attribute is split by | in a line
-	    				this.customer_id = Integer.parseInt(list[0]);
+	    				this.emailCustomer = Integer.parseInt(list[0]);
 	    				this.booking_id = list[1];
 	    				this.customer_name = list[2];
 	    				this.mobile_number = Integer.parseInt(list[3]);
 	    				this.booked_movie = list[4];
-	    				this.email_id = list[5];
-	    				this.date_time = list[6];
-	    				this.seat_num = Integer.parseInt(list[7]);
-	    				this.first_seat = list[8];
+	    				this.date_time = list[5];
+	    				this.seat_num = Integer.parseInt(list[6]);
+	    				this.first_seat = list[7];
 	            	
 	    				addNewMovieGoer(); //add movie goer using customer details retrieved
 	            	
@@ -90,7 +87,7 @@ public class MovieGoerIO {
 	    			
 	    }	
 	   
-	    public void writeNewBooking(int customer_id, String booking_id, String customer_name, int mobile_number, String booked_movie, String email_id, String time, int seat_num, String first_seat) throws IOException,Exception{
+	    public void writeNewBooking(String emailCustomer, String booking_id, String customer_name, int mobile_number, String booked_movie, String time, int seat_num, String first_seat) throws IOException,Exception{
 	    	
 	    	//class to create a new booking
 	    	
@@ -109,12 +106,11 @@ public class MovieGoerIO {
 				BufferedWriter writer = new BufferedWriter(file_write);
 				
 				writer.newLine();
-				writer.write(Integer.toString(customer_id) + "|");
+				writer.write(emailCustomer + "|");
 				writer.write(booking_id + "|");
 				writer.write(customer_name + "|");
 				writer.write(Integer.toString(mobile_number) + "|");
 				writer.write(booked_movie + "|");
-				writer.write(email_id + "|");
 				writer.write(time + "|");
 				writer.write(Integer.toString(seat_num) + "|");
 				writer.write(first_seat + "|");
@@ -135,7 +131,7 @@ public class MovieGoerIO {
 	    		
 	    		//add movie goer using customer booking details retrieved from the customer file
 	    		
-	    		goer.setIDCustomer(customer_id);
+	    		goer.setEmailCustomer(emailCustomer);
 	    		goer.setNameCustomer(customer_name);
 	    		goer.setMobileNumber(mobile_number);
 	    		
@@ -145,9 +141,9 @@ public class MovieGoerIO {
 	    		
 	    		for(int i = 0; i<num; i++) {
 	    			
-	    			int goerID = movie_goer.get(i).getIDCustomer();
+	    			String goerID = movie_goer.get(i).getEmailCustomer();
 	    			
-	    			if(goerID == customer_id) {
+	    			if(goerID == emailCustomer) {
 	    				
 	    				check = 0; 
 	    				
@@ -186,20 +182,19 @@ public class MovieGoerIO {
 	    	
 	    	BookingTicket book = new BookingTicket();	
 	    	
-	    	book.setIDCustomer(customer_id);
+	    	book.setEmailCustomer(emailCustomer);
 	    	book.setBookingID(booking_id);
 	    	book.setFirstSeat(first_seat);
 	    	book.setBookedMovie(booked_movie);
 	    	book.setNumberOfSeats(seat_num);
 	    	book.setDateTime(date_time);
-	    	book.setEmail(email_id);
 	    	
 	    	
 	    	return book;
 	    }
 	    
 	    
-	   public void assignSeatsByMovie(Movie movie, int index, String customer_name, int customer_id, String email_id, int mobile_number, String booking_id, int seat_num, String first_seat) throws IOException, Exception {
+	   public void assignSeatsByMovie(Movie movie, int index, String customer_name, String emailCustomer, int mobile_number, String booking_id, int seat_num, String first_seat) throws IOException, Exception {
 	    	
 		   try{
 	    		readBookingsFile(); //read bookings made by customers
@@ -216,8 +211,8 @@ public class MovieGoerIO {
 	    		
 	    		for(i=0; i<num; i++) {
 	    			
-	    			int custID = movie_goer.get(i).getIDCustomer();
-	    			if(custID == customer_id) {
+	    			String custID = movie_goer.get(i).getEmailCustomer();
+	    			if(custID == emailCustomer) {
 	    				check = 0;
 	    				break;
 	    			}
@@ -227,7 +222,7 @@ public class MovieGoerIO {
 	    			
 	    			MovieGoer goer = new MovieGoer();
 	    			goer.setNameCustomer(customer_name);
-	    			goer.setIDCustomer(customer_id);
+	    			goer.setEmailCustomer(emailCustomer);
 	    			
 	    			
 	    			book = createBooking();
@@ -265,7 +260,7 @@ public class MovieGoerIO {
 	    	    String timing = show.getTimenDate(); 	
 	    	    
 	    	    //write a new booking for a customer with the designated seat and timing
-	    	    writeNewBooking(customer_id, booking_id, customer_name, mobile_number, booked_movie, email_id, timing, seat_num, first_seat); 	
+	    	    writeNewBooking(emailCustomer, booking_id, customer_name, mobile_number, booked_movie,timing, seat_num, first_seat); 	
 		   }
 		   
 		   finally{
@@ -283,15 +278,15 @@ public class MovieGoerIO {
 		}
 
 		
-		public MovieGoer getMovieGoer(int customer_id) throws IOException, Exception { //class to identify movie goer
+		public MovieGoer getMovieGoer(String emailCustomer) throws IOException, Exception { //class to identify movie goer
 			
 			try{
 				readBookingsFile();
 				int numOfCustomers = movie_goer.size(); //get number of customers
 				int i;
 				for(i=0; i<numOfCustomers; i++) {
-					int custID = movie_goer.get(i).getIDCustomer(); 
-					if(custID==customer_id) break; //find movie goer using id
+					String custID = movie_goer.get(i).getEmailCustomer(); 
+					if(custID==emailCustomer) break; //find movie goer using id
 				}
 			
 				return movie_goer.get(i); //return movie goer details
