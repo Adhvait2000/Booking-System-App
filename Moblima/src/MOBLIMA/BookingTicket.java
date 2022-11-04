@@ -3,9 +3,8 @@ import java.io.*;
 import java.util.List;
 
 public class BookingTicket {
-    // customer id of the person who has made the booking
-
-    private int idCustomer;
+    //email id of customer who made booking
+    private String emailCustomer;
 
     // unique booking ID of the movie
     String booking_id;
@@ -25,22 +24,17 @@ public class BookingTicket {
     // show object of the show booked
     private Show bookedShow;
 
-    // email ID of the customer
-    private String email_id;
-
     public BookingTicket() {
     };
 
     // Booking Constructor
 
-    public BookingTicket(int idCustomer, String booking_id, String booked_movie, int seatnum, String first_seat,
-            Show show,
-            String email_id) {
+    public BookingTicket(String emailCustomer, String booking_id, String booked_movie, int seatnum, String first_seat,
+            Show show) {
         this.booked_movie = booked_movie;
         this.booking_id = booking_id;
         this.seatnum = seatnum;
         this.first_seat = first_seat;
-        this.email_id = email_id;
         this.setShow(show);
     }
 
@@ -101,22 +95,13 @@ public class BookingTicket {
         this.first_seat = first_seat;
     }
 
-    // getting and setting Customer ID
-    public int getIDCustomer() {
-        return idCustomer;
+    // getting and setting Email ID of customers
+    public String getEmailCustomer() {
+        return emailCustomer;
     }
 
-    public void setIDCustomer(int customer_id) {
-        this.idCustomer = customer_id;
-    }
-
-    // getting and setting email ID
-    public String getEmail() {
-        return email_id;
-    }
-
-    public void setEmail(String email_id) {
-        this.email_id = email_id;
+    public void setEmailCustomer(String emailCustomer) {
+        this.emailCustomer = emailCustomer;
     }
 
     // getting and setting date and time
