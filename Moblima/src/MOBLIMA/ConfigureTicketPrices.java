@@ -1,3 +1,5 @@
+package MOBLIMA;
+
 import java.util.*;
 
 public class ConfigureTicketPrices
@@ -34,56 +36,56 @@ public class ConfigureTicketPrices
             switch(choice)
             {
                 case 1:
-                System.out.println("Current 3D Price" + Quotation.get3DPrice());
+                System.out.println("Current 3D Price" + Quotation.get3DPricing());
                 System.out.println("New 3D Price");
                 newPrice = sc.nextDouble();
                 prices.set(0,newPrice);
                 break;
                 
                 case 2:
-                System.out.println("Current Standard Ticket Price " + Quotation.getStandardPrice());
+                System.out.println("Current Standard Ticket Price " + Quotation.getStandardPricing());
                 System.out.println("New Standard Ticket Price");
                 newPrice = sc.nextDouble();
                 prices.set(1,newPrice);
                 break;
                 
                 case 3:
-                System.out.println("Current Premium Ticket Price " + Quotation.getPremiumPrice());
+                System.out.println("Current Premium Ticket Price " + Quotation.getPremiumPricing());
                 System.out.println("New Premium Ticket Price");
                 newPrice = sc.nextDouble();
                 prices.set(2,newPrice);
                 break;
                 
                 case 4:
-                System.out.println("Current Platinum Ticket Price " + Quotation.getPlatinumPrice());
+                System.out.println("Current Platinum Ticket Price " + Quotation.getPlatinumPricing());
                 System.out.println("New Platinum Ticket Price");
                 newPrice = sc.nextDouble();
                 prices.set(3,newPrice);
                 break;
                 
                 case 5:
-                System.out.println("Current Child Ticket Price" + Quotation.getChildPrice());
+                System.out.println("Current Child Ticket Price" + Quotation.getChildPricing());
                 System.out.println("New Child Ticket Price");
                 newPrice = sc.nextDouble();
                 prices.set(4,newPrice);
                 break;
                 
                 case 6:
-                System.out.println("Current Senior Citizen Price" + Quotation.getSeniorCitizenPrice());
+                System.out.println("Current Senior Citizen Price" + Quotation.getSeniorCitizenPricing());
                 System.out.println("New Senior Citizen Price");
                 newPrice = sc.nextDouble();
                 prices.set(5,newPrice);
                 break;
                 
                 case 7:
-                System.out.println("Current Public Holiday Price" + Quotation.getPublicHolidayPrice());
+                System.out.println("Current Public Holiday Price" + Quotation.getPublicHolidayPricing());
                 System.out.println("New Public Holiday Price:");
                 newPrice = sc.nextDouble();
                 prices.set(6,newPrice);
                 break;
                 
                 case 8:
-                System.out.println("Current Price" + Quotation.getGSTPrice());
+                System.out.println("Current Price" + Quotation.getGSTPricing());
                 System.out.println("New Price:");
                 newPrice = sc.nextDouble();
                 prices.set(7,newPrice);
@@ -92,7 +94,7 @@ public class ConfigureTicketPrices
                 case 9:
                 UpdateTicketPrices UpdatePrice = new UpdateTicketPrices();
                 UpdatePrice.priceLog(prices);
-                System.out.println(AdminChangeStatus.SUCCESSFUL.returningStatus());
+                System.out.println(AdminChangeStatus.SUCCESSFUL.returnStatus());
                 break;
                 
                 case 10:

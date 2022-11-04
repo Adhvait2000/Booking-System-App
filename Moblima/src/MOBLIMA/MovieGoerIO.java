@@ -182,7 +182,7 @@ public class MovieGoerIO {
 	    	
 	    	BookingTicket book = new BookingTicket();	
 	    	
-	    	book.setEmail(emailCustomer);
+	    	book.setEmailCustomer(emailCustomer);
 	    	book.setBookingID(booking_id);
 	    	book.setFirstSeat(first_seat);
 	    	book.setBookedMovie(booked_movie);
