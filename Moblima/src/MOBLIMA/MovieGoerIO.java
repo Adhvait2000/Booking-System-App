@@ -35,7 +35,7 @@ public class MovieGoerIO {
 
 	    public void previousBookingCount() throws IOException, Exception { //class to count previous bookings made by customers
 	    	
-	    	FileReader text_file = new FileReader("data/Customers.txt"); //read data on customers 
+	    	FileReader text_file = new FileReader(this.text_file); //read data on customers 
 			BufferedReader reader = new BufferedReader(text_file);
 			
 			String str; 
@@ -50,40 +50,45 @@ public class MovieGoerIO {
 	    
 	    public void readBookingsFile() throws IOException,Exception { //class to read a booking file
 	    	
-	    		previousBookingCount(); //update num of bookings already made by customers
-	    		
-	    		FileReader text_file = new FileReader("data/Customers.txt");
-	    		BufferedReader reader = new BufferedReader(text_file);
-	    		
-	    		String str;
-	    		
-	    		int i = 1;
-	    		
-	    		while(i <= numOfBookings) {
-	    			
-	    			str = reader.readLine();
-	    			
-	    			if(str != null) { //for each line in the customer file, retrieve details of each booking and update attributes
-	    				
-	    				String[] list = str.split("[|]"); //each attribute is split by | in a line
-	    				this.emailCustomer = list[0];
-	    				this.booking_id = list[1];
-	    				this.customer_name = list[2];
-	    				this.mobile_number = Integer.parseInt(list[3]);
-	    				this.booked_movie = list[4];
-	    				this.date_time = list[5];
-	    				this.seat_num = Integer.parseInt(list[6]);
-	    				this.first_seat = list[7];
+	    	try {
+				previousBookingCount(); //update num of bookings already made by customers
+				
+				FileReader text_file = new FileReader(this.text_file);
+				BufferedReader reader = new BufferedReader(text_file);
+				
+				String str;
+				
+				int i = 1;
+				
+				while(i <= numOfBookings) {
+					
+					str = reader.readLine();
+					
+					if(str != null) { //for each line in the customer file, retrieve details of each booking and update attributes
+						
+						String[] list = str.split("[|]"); //each attribute is split by | in a line
+						this.customer_name = list[0];
+						this.booking_id = list[1];
+						this.emailCustomer = list[2];
+						this.mobile_number = Integer.parseInt(list[3]);
+						this.booked_movie = list[4];
+						this.date_time = list[5];
+						this.seat_num = Integer.parseInt(list[6]);
+						this.first_seat = list[7];
+		        	
+						addNewMovieGoer(); //add movie goer using customer details retrieved
+		        	
+					}
+					
+					i+=1;
+				
+				}
 	            	
-	    				addNewMovieGoer(); //add movie goer using customer details retrieved
-	            	
-	    			}
-	    			
-	    			i+=1;
-	    		
-	    		}
-	            	
-	            	
+	    	}
+	    	catch(Exception e)
+	    	{
+	    		System.err.println(e.getMessage());
+	    	}
 	    			
 	    }	
 	   
@@ -105,7 +110,6 @@ public class MovieGoerIO {
 				FileWriter file_write = new FileWriter(text_file, true); 
 				BufferedWriter writer = new BufferedWriter(file_write);
 				
-				writer.newLine();
 				writer.write(emailCustomer + "|");
 				writer.write(booking_id + "|");
 				writer.write(customer_name + "|");
@@ -114,6 +118,7 @@ public class MovieGoerIO {
 				writer.write(time + "|");
 				writer.write(Integer.toString(seat_num) + "|");
 				writer.write(first_seat + "|");
+				writer.write("");
 				writer.close();
 				
 				numOfBookings += 1; //update numOfBookings
@@ -285,13 +290,19 @@ public class MovieGoerIO {
 				int numOfCustomers = movie_goer.size(); //get number of customers
 				int i;
 				for(i=0; i<numOfCustomers; i++) {
-					String custID = movie_goer.get(i).getEmailCustomer(); 
-					if(custID==emailCustomer) break; //find movie goer using id
+					String email = movie_goer.get(i).getEmailCustomer(); 
+					if(email.equals(emailCustomer)) break; //find movie goer using id
 				}
 			
 				return movie_goer.get(i); //return movie goer details
 				
-			}finally {
+			}
+			catch(Exception e)
+			{
+				System.out.println("[MovieGoerIO]" + e.getMessage());
+				return null;
+			}
+			finally {
 				
 				movie_goer.clear(); 
 				

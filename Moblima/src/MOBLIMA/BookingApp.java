@@ -7,7 +7,6 @@ public class BookingApp {
 	static Stack<MenuPage> menuStack;
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		menuStack = new Stack<MenuPage>();
 		menuStack.push(new MainMenuPage()); //
 		menuStack.peek().Initialize();

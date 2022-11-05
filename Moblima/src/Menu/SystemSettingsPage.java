@@ -23,6 +23,8 @@ public class SystemSettingsPage extends MenuPage {
 		switch(choice)
 		{
 		case TICKETPRICES:
+			nextPage = new ConfigureTicketPrices();
+			goNext = true;
 			break;
 		case HOLIDAYS:
 			break;

@@ -9,6 +9,7 @@ public class Show { // figure out how to implement extends movie
 	private int cineplexID;
 	private Movie mov;
 	private int screenNumber;
+	private int availableSeats = 81;
 	
 	//to find if movie is 3D?;
 	private boolean is3D;
@@ -76,6 +77,7 @@ public class Show { // figure out how to implement extends movie
 	public void assignSeat(int x1,int y2) {
 		if (seat[x1][y2] == 0) {
 			seat[x1][y2] = 1;
+			availableSeats--;
 			//mov.incTsales();
 		}
 		else
@@ -101,6 +103,10 @@ public class Show { // figure out how to implement extends movie
 	
 	public int getScreenNumber() {
 		return screenNumber;
+	}
+	
+	public int getAvailableSeats() {
+		return availableSeats;
 	}
 	
 	//end of get functions;

@@ -74,6 +74,28 @@ public class ValidInputManager {
 		return input;
 	}
 	
+	public static double GetDouble()
+	{
+		boolean inputReceived = false;
+		double input = -1;
+		while(!inputReceived)
+		{
+			try
+			{
+				System.out.printf("...Enter your choice:");
+				Scanner scan = new Scanner(System.in);
+				input = scan.nextDouble();
+				inputReceived = true;
+			}
+			catch (Exception e)
+			{
+				System.out.println("...Wrong input, please try again.");
+			}
+		}
+		
+		return input;
+	}
+	
 	public static String GetString()
 	{
 		boolean inputReceived = false;
@@ -95,4 +117,43 @@ public class ValidInputManager {
 		
 		return input;
 	}
+	
+	public static String GetStringInChoices(String[] choices)
+	{
+		boolean inputReceived = false;
+		String input = "";
+		while(!inputReceived)
+		{
+			try
+			{
+				System.out.printf("...Enter:");
+				Scanner scan = new Scanner(System.in);
+				input = scan.nextLine();
+				boolean choiceFound = false;
+				if(choices.length > 0)
+				{
+					for(int i = 0; i < choices.length; i++)
+					{
+						if(input.toLowerCase().equals(choices[i].toLowerCase()))
+						{
+							choiceFound = true;
+							break;
+						}
+					}
+				}
+				if(!choiceFound)
+					throw new Exception();
+				
+				inputReceived = true;
+			}
+			catch (Exception e)
+			{
+				System.out.println("...Wrong input, please try again.");
+			}
+		}
+		
+		return input;
+	}
+	
+	
 }
