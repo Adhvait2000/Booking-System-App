@@ -164,8 +164,8 @@ public class CreateRemoveUpdateMovieShowtimes extends MenuPage {
                     movie.deleteShow(movieCineplexModel, select);
                 }
             case 3:
-            	this.endMenu = true;
-            	break;
+                this.endMenu = true;
+                break;
         }
     }
 
