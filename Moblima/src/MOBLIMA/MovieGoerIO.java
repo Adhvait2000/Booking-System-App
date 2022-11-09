@@ -110,6 +110,7 @@ public class MovieGoerIO {
 				FileWriter file_write = new FileWriter(text_file, true); 
 				BufferedWriter writer = new BufferedWriter(file_write);
 				
+				writer.newLine();
 				writer.write(emailCustomer + "|");
 				writer.write(booking_id + "|");
 				writer.write(customer_name + "|");
@@ -299,7 +300,7 @@ public class MovieGoerIO {
 			}
 			catch(Exception e)
 			{
-				System.out.println("[MovieGoerIO]" + e.getMessage());
+				System.out.println("[MovieGoerIO] " + e.getMessage());
 				return null;
 			}
 			finally {

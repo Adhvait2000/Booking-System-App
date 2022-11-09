@@ -231,7 +231,7 @@ public class CustomerPage extends MenuPage {
 		
 		System.out.println("...Enter Movie Goer Category (Adult / SeniorCitizen / Child): ");
 		
-		String[] movieGoerCategoryChoices = {"Adult", "Senior Citizen", "Child"};
+		String[] movieGoerCategoryChoices = {"Adult", "SeniorCitizen", "Child"};
 		String movieGoerCategory = ValidInputManager.GetStringInChoices(movieGoerCategoryChoices);
 	
 		System.out.println("All Movies");
@@ -362,6 +362,8 @@ public class CustomerPage extends MenuPage {
 		//Get corresponding MovieGoer object from MoverGoerIO class using CustomerID.
 		try {
 			moviegoer = M.getMovieGoer(customerEmail);
+			if(moviegoer == null)
+				throw new Exception("NULL CUSTOMER");
 		}
 		catch(Exception e)
 		{
