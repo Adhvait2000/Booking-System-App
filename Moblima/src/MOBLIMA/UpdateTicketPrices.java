@@ -7,27 +7,27 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-
 public class UpdateTicketPrices {
 	int x;
+
 	public void priceLog(ArrayList priceLatest) {
-		
+
 		try {
-		PrintWriter listp = new PrintWriter("data/prices.txt");
-		//declare and initialise;
-		
-		for(x = 0; x < 7; x++) {
-			//for loop;
-			listp.println(priceLatest.get(x));
+			PrintWriter listp = new PrintWriter(System.getProperty("user.dir") + "/Moblimadata/prices.txt");
+			// declare and initialise;
+
+			for (x = 0; x < 7; x++) {
+				// for loop;
+				listp.println(priceLatest.get(x));
+			}
+			listp.print(priceLatest.get(7));
+			listp.close();
 		}
-		listp.print(priceLatest.get(7));
-		listp.close();
-		}
-		
+
 		catch (FileNotFoundException exc) {
-            exc.printStackTrace();
-        }
-		
+			exc.printStackTrace();
+		}
+
 	}
 
 }

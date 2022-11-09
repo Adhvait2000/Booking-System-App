@@ -1,4 +1,5 @@
 package MOBLIMA;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.security.NoSuchAlgorithmException;
@@ -40,7 +41,7 @@ public class Password {
 
     public static ArrayList<String> readPasswords() {
 
-        File file = new File("data/passwords.txt");
+        File file = new File(System.getProperty("user.dir") + "/Moblima/data/passwords.txt");
 
         try {
 
@@ -73,21 +74,20 @@ public class Password {
         }
         return valid;
     }
-    
-    public static void addPassword(String password) throws IOException
-    {
-    	String hashedPass = hashPassword(password);
-    	Scanner scanner = new Scanner(System.in);
-		
-    	String fileDir = "data/passwords.txt";
-		
-		FileWriter file_write = new FileWriter(fileDir, true); 
-		BufferedWriter writer = new BufferedWriter(file_write);
-		
-		writer.newLine();
-		writer.write(hashedPass);
-		writer.close();
-		
+
+    public static void addPassword(String password) throws IOException {
+        String hashedPass = hashPassword(password);
+        Scanner scanner = new Scanner(System.in);
+
+        String fileDir = "data/passwords.txt";
+
+        FileWriter file_write = new FileWriter(fileDir, true);
+        BufferedWriter writer = new BufferedWriter(file_write);
+
+        writer.newLine();
+        writer.write(hashedPass);
+        writer.close();
+
     }
 
 }
