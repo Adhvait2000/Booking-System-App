@@ -3,6 +3,7 @@ package Menu;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 import MOBLIMA.Cineplex;
@@ -17,13 +18,11 @@ import MOBLIMA.MovieGoer;
 import MOBLIMA.BookingTicket;
 
 public class CustomerPage extends MenuPage {
-	static final int MOVIES_DETAILS = 1;
-	static final int SEAT_AVAILABILITY = 2;
-	static final int PURCHASE_TICKETS = 3;
-	static final int BOOKING_HISTORY = 4;
-	static final int TOP_RANKING = 5;
-	static final int ALL_CINEPLEX = 6;
-	static final int WRITEREVIEWRATING = 7;
+	static final int VIEWMOVIES = 1;
+	static final int BOOKING_HISTORY = 2;
+	static final int TOP_RANKING = 3;
+	static final int ALL_CINEPLEX = 4;
+	static final int WRITEREVIEWRATING = 5;
 	
 	@Override
 	public void Initialize() {
@@ -35,28 +34,22 @@ public class CustomerPage extends MenuPage {
 	public void Update() {
 		// TODO Auto-generated method stub
 		System.out.println("Customer Mode");
-		System.out.println("...1) List All Movies and Movie Details");
-		System.out.println("...2) Check Seat Availability");
-		System.out.println("...3) Book and Purchase movie tickets");
-		System.out.println("...4) View booking history");
-		System.out.println("...5) List top 5 movies ranked by ticket sales or overall reviewer's ratings");
-		System.out.println("...6) List all Cineplexes");
-		System.out.println("...7) Write a review / Give Rating");
-		System.out.println("...8) Go Back");
+		System.out.println("...1) View Movies");
+		System.out.println("...2) View booking history");
+		System.out.println("...3) List top 5 movies ranked by ticket sales or overall reviewer's ratings");
+		System.out.println("...4) List all Cineplexes");
+		System.out.println("...5) Write a review / Give Rating");
+		System.out.println("...6) Go Back");
 		
-		int choice = ValidInputManager.GetIntWithinRange(1, 9);
+		int choice = ValidInputManager.GetIntWithinRange(1, 7);
 		System.out.println("");
 		
 		switch(choice)
 		{
-		case MOVIES_DETAILS:
-			MovieDetailsUpdate();
-			break;
-		case SEAT_AVAILABILITY:
-			SeatAvailabilityUpdate();
-			break;
-		case PURCHASE_TICKETS:
-			PurchaseTicketsUpdate();
+		case VIEWMOVIES:
+			//MovieDetailsUpdate();
+			this.nextPage = new ListMoviesPage();
+			this.goNext = true;	
 			break;
 		case BOOKING_HISTORY:
 			ViewBookingHistoryUpdate();
@@ -354,6 +347,7 @@ public class CustomerPage extends MenuPage {
 		MovieGoerIO M = new MovieGoerIO(); 
 		MovieGoer moviegoer = null;
 		ArrayList<BookingTicket> customerbookings = new ArrayList<>();
+		MovieGoer moviegoers[] = Arrays.copyOf(MovieGoerIO.movie_goer.toArray(), MovieGoerIO.movie_goer.size(), MovieGoer[].class);
 		
 		//Accepting Customer ID to retrieve booking history. 
 		System.out.println("Please enter Customer Email to view booking history: ");

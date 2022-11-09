@@ -13,6 +13,12 @@ public class TransactionID {
 	 */
 	public TransactionID(Cinema cinema) {
 
+		switch(cinema.getCinemaName())
+		{
+			case "Shaw":
+				break;
+		}
+		
 		createTID(cinema.getCinemaCode());
 	}
 	

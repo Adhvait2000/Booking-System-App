@@ -110,7 +110,17 @@ public class Movie {
     public void saveShowDetails() {
         MovieIO m = new MovieIO();
         try {
-            m.saveShows(System.getProperty("user.dir") + "/Moblima/data/Shows/" + movie + ".txt", Shows);
+        	String dir = "";
+    		// If using windows
+    		if(System.getProperty("os.name").startsWith("Windows"))
+    		{
+    			dir = System.getProperty("user.dir") + "/data/Shows/" + movie + ".txt";
+    		}else
+    		{
+    			dir = System.getProperty("user.dir") + "/Moblima/data/Shows/" + movie + ".txt";
+    		}
+        	
+            m.saveShows(dir, Shows);
         } catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
         }

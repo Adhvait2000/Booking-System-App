@@ -9,7 +9,7 @@ public class MovieGoerIO {
 
 	private File text_file;  // access file containing list of movie goers
 
-	private static ArrayList<MovieGoer> movie_goer = new ArrayList<>(); // list of movie goers
+	public static ArrayList<MovieGoer> movie_goer = new ArrayList<>(); // list of movie goers
 
 	private String customer_name; // name of customer
 
@@ -159,7 +159,7 @@ public class MovieGoerIO {
 
 			String goerID = movie_goer.get(i).getEmailCustomer();
 
-			if (goerID == emailCustomer) {
+			if (goerID.equals(emailCustomer)) {
 
 				check = 0;
 

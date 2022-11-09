@@ -10,7 +10,7 @@ public class MovieGoer { //details of movie goers i.e. our customers
     
     private int mobileNumber; //mobile number of customers
     
-    private ArrayList<BookingTicket> custBookings = new ArrayList<BookingTicket>(); //list of bookings made by a customer
+    public ArrayList<BookingTicket> custBookings = new ArrayList<BookingTicket>(); //list of bookings made by a customer
     
     public MovieGoer() {};
    

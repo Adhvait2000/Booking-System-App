@@ -109,6 +109,10 @@ public class Show { // figure out how to implement extends movie
 		return availableSeats;
 	}
 	
+	public Movie getMovie(){
+		return mov;
+	}
+	
 	//end of get functions;
 	
 	public boolean get3D() {
