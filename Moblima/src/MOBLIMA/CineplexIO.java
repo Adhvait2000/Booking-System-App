@@ -15,6 +15,15 @@ public class CineplexIO {
 
 	public CineplexIO() {
 		// TODO Auto-generated constructor stub
+		
+		// If using windows
+		if(System.getProperty("os.name").startsWith("Windows"))
+		{
+			filename = System.getProperty("user.dir") + "/data/cineplex.txt";
+		}else
+		{
+			filename = System.getProperty("user.dir") + "/Moblima/data/cineplex.txt";
+		}
 	}
 
 	// access the cineplexes;

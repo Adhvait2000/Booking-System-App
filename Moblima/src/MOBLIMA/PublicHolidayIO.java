@@ -6,7 +6,16 @@ public class PublicHolidayIO {
 
 	public String[] readPublicHolidays() throws IOException, Exception {
 
-		FileReader text_file = new FileReader(System.getProperty("user.dir") + "/Moblima/data/PublicHolidays.txt");
+		FileReader text_file;
+		
+		if(System.getProperty("os.name").startsWith("Windows"))
+		{
+			text_file = new FileReader(System.getProperty("user.dir") + "/data/PublicHolidays.txt");
+		}else
+		{
+			text_file = new FileReader(System.getProperty("user.dir") + "/Moblima/data/PublicHolidays.txt");
+		}
+		
 		BufferedReader reader = new BufferedReader(text_file);
 
 		try {

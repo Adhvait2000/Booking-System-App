@@ -124,7 +124,16 @@ public class Movie {
         Cinema tempCinema;
         MovieIO m = new MovieIO();
         try {
-            ArrayList arr = m.readShows(this, System.getProperty("user.dir") + "/Moblima/data/Shows/" + movie + ".txt");
+        	String dir = "";
+    		// If using windows
+    		if(System.getProperty("os.name").startsWith("Windows"))
+    		{
+    			dir = System.getProperty("user.dir") + "/data/Shows/" + movie + ".txt";
+    		}else
+    		{
+    			dir = System.getProperty("user.dir") + "/Moblima/data/Shows/" + movie + ".txt";
+    		}
+            ArrayList arr = m.readShows(this, dir);
             Shows = arr;
 
             for (int i = 0; i < Shows.size(); i++) {

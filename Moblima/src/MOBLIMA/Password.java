@@ -40,8 +40,15 @@ public class Password {
     // read passwords and store in an arraylist
 
     public static ArrayList<String> readPasswords() {
-
-        File file = new File(System.getProperty("user.dir") + "/Moblima/data/passwords.txt");
+    	File file;
+    	
+		if(System.getProperty("os.name").startsWith("Windows"))
+		{
+			file = new File(System.getProperty("user.dir") + "/data/passwords.txt");
+		}else
+		{
+			file = new File(System.getProperty("user.dir") + "/Moblima/data/passwords.txt");
+		}
 
         try {
 
@@ -79,8 +86,16 @@ public class Password {
         String hashedPass = hashPassword(password);
         Scanner scanner = new Scanner(System.in);
 
-        String fileDir = "data/passwords.txt";
+        String fileDir;
 
+		if(System.getProperty("os.name").startsWith("Windows"))
+		{
+			fileDir = System.getProperty("user.dir") + "/data/passwords.txt";
+		}else
+		{
+			fileDir = System.getProperty("user.dir") + "/Moblima/data/passwords.txt";
+		}
+        
         FileWriter file_write = new FileWriter(fileDir, true);
         BufferedWriter writer = new BufferedWriter(file_write);
 

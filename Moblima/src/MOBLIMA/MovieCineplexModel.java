@@ -23,6 +23,20 @@ public class MovieCineplexModel {
 	public static MovieCineplexModel getInstance() {
 		if (instance == null) {
 			instance = new MovieCineplexModel();
+			
+        	String dir = "";
+    		// If using windows
+    		if(System.getProperty("os.name").startsWith("Windows"))
+    		{
+    			instance.moviesDir = System.getProperty("user.dir") + "/data/movies.txt";
+    			instance.cineplexDir = System.getProperty("user.dir") + "/data/cineplex.txt";
+    		}else
+    		{
+    			instance.moviesDir = System.getProperty("user.dir") + "/Moblima/data/movies.txt";
+    			instance.cineplexDir = System.getProperty("user.dir") + "/Moblima/data/cineplex.txt";
+    		}
+    		
+    		
 
 			if (!instance.readCineplexes()) {
 				System.err.println("[MovieCineplexModel] Error: Unable to read Cineplexes");

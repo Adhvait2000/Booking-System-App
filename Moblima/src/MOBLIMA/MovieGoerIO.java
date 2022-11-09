@@ -7,11 +7,7 @@ import java.util.*;
 
 public class MovieGoerIO {
 
-	private File text_file = new File(System.getProperty("user.dir") + "/Moblima/data/movie_goers.txt"); // access file
-																											// containing
-																											// list of
-																											// movie
-																											// goers
+	private File text_file;  // access file containing list of movie goers
 
 	private static ArrayList<MovieGoer> movie_goer = new ArrayList<>(); // list of movie goers
 
@@ -37,6 +33,13 @@ public class MovieGoerIO {
 	public int[][] seat_pos = new int[9][9]; // seats in a cinema
 
 	public MovieGoerIO() {
+		if(System.getProperty("os.name").startsWith("Windows"))
+		{
+			text_file = new File(System.getProperty("user.dir") + "/data/movie_goers.txt");
+		}else
+		{
+			text_file = new File(System.getProperty("user.dir") + "/Moblima/data/movie_goers.txt");
+		}
 	}; // constructor for the class
 
 	public void previousBookingCount() throws IOException, Exception { // class to count previous bookings made by
@@ -116,6 +119,7 @@ public class MovieGoerIO {
 			FileWriter file_write = new FileWriter(text_file, true);
 			BufferedWriter writer = new BufferedWriter(file_write);
 
+			writer.newLine();
 			writer.write(emailCustomer + "|");
 			writer.write(booking_id + "|");
 			writer.write(customer_name + "|");
@@ -298,7 +302,7 @@ public class MovieGoerIO {
 			return movie_goer.get(i); // return movie goer details
 
 		} catch (Exception e) {
-			System.out.println("[MovieGoerIO]" + e.getMessage());
+			System.out.println("[MovieGoerIO] " + e.getMessage());
 			return null;
 		} finally {
 
