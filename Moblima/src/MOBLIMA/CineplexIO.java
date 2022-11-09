@@ -11,7 +11,7 @@ import java.io.FileWriter;
 public class CineplexIO {
 	private static String SEPERATOR = "|";
 	// to read the data;
-	public static String filename = "data/cineplex.txt";
+	public static String filename = System.getProperty("user.dir") + "/Moblima/data/cineplex.txt";
 
 	public CineplexIO() {
 		// TODO Auto-generated constructor stub
