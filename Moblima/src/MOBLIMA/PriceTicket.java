@@ -12,11 +12,16 @@ public class PriceTicket {
 
 	public static ArrayList<Double> getPrice() {
 
-		File text_file = new File(System.getProperty("user.dir") + "/Moblima/data/ticket_prices.txt"); // get data
-																										// containing
-																										// prices of
-																										// each type of
-																										// ticket
+        File text_file;
+        
+		if(System.getProperty("os.name").startsWith("Windows"))
+		{
+			text_file = new File(System.getProperty("user.dir") + "/data/ticket_prices.txt");
+		}else
+		{
+			text_file = new File(System.getProperty("user.dir") + "/Moblima/data/ticket_prices.txt");
+		}
+        																							// ticket
 
 		try {
 
