@@ -1,7 +1,7 @@
 package MOBLIMA;
 
 /**
-created this class to show and create the different movies. This will be using the objects in the class movie.java
+Created this class to show and create the different movies. This will be using the objects in the class movie.java
 @version 1.0
 @since 2022-11-01
 */
@@ -32,20 +32,20 @@ public class Show {
 	private int screenNumber;
 	
 	/**
-	 * declare and initialise available seats
+	 * Declare and initialise available seats
 	 */
 	private int availableSeats = 81;
 	
 	//to find if movie is 3D;
 	
 	/**
-	 * created a boolean value to find out if the movie is 3D or not
+	 * Created a boolean value to find out if the movie is 3D or not
 	 */
 	private boolean is3D;
 	
 	//declare array of seats;
 	/**
-	 * create an array for seats in the cinema
+	 * Create an array for seats in the cinema
 	 */
 	private int[][] seat = new int[9][9];
 	
@@ -94,7 +94,7 @@ public class Show {
 	
 	//printing the seats;
 	/**
-	 *seats to be printed
+	 *Seats to be printed
 	 */
 	public void printSeats() {
 		System.out.printf("Movie %s by Director %s\n",mov.getMovieName(),mov.getDirector());
@@ -128,7 +128,7 @@ public class Show {
 	
 	//assigning the x and y axis;
 	/**
-	 *Seat to be assigned
+	 * Seat to be assigned
 	 * @param x1 seat arrangement x coordinate
 	 * @param y2 seat arrangment y coordinate
 	 */
@@ -151,7 +151,7 @@ public class Show {
 	
 	//get functions and return;
 	/**
-	 *Gets the time and date details of the show
+	 * Gets the time and date details of the show
 	 * @return TimenDate This customers' time and date selected
 	 */
 	public String getTimenDate() {
@@ -159,7 +159,7 @@ public class Show {
 	}
 	
 	/**
-	 *Gets the CineplexID of the show
+	 * Gets the CineplexID of the show
 	 * @return CineplexID This customers' cineplex ID
 	 */
 	public int getCineplexID() {
@@ -167,7 +167,7 @@ public class Show {
 	}
 	
 	/**
-	 *Gets the ScreenNumber of the show
+	 * Gets the ScreenNumber of the show
 	 * @return ScreenNumber This customers' screen number for the show
 	 */
 	public int getScreenNumber() {
@@ -175,7 +175,7 @@ public class Show {
 	}
 	
 	/**
-	 *Gets the available seats for the show selected
+	 * Gets the available seats for the show selected
 	 * @return AvailableSeats This customers' available seats to choose from
 	 */
 	public int getAvailableSeats() {
@@ -183,7 +183,7 @@ public class Show {
 	}
 	
 	/**
-	 *Gets the movie of the show
+	 * Gets the movie of the show
 	 * @return getMovie Get the movie
 	 */
 	public Movie getMovie(){
@@ -192,7 +192,7 @@ public class Show {
 	
 	
 	/**
-	 *show if movie is 3D
+	 * Show if movie is 3D
 	 * @return get3D This customers' movie details-3D or not
 	 */
 	public boolean get3D() {
@@ -200,7 +200,7 @@ public class Show {
 	}
 	
 	/**
-	 *Gets the array for seats
+	 * Gets the array for seats
 	 * @return getSeat Return the seat array
 	 */
 	public int[][] getSeat(){
