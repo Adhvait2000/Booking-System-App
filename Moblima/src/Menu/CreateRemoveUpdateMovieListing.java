@@ -87,7 +87,7 @@ public class CreateRemoveUpdateMovieListing extends MenuPage {
 
                 System.out.print("Current Status of the Movie: " + movies.get(movie_num - 1).getShowingStatus() + "");
 
-                System.out.println("Enter new status of the Moive (COMING_SOON, PREVIEW, NOW_SHOWING): ");
+                System.out.println("Enter new status of the Movie (COMING_SOON, PREVIEW, NOW_SHOWING): ");
 
                 String newStatus = ValidInputManager.GetString();
 
@@ -98,6 +98,8 @@ public class CreateRemoveUpdateMovieListing extends MenuPage {
                 System.out.println(AdminChangeStatus.SUCCESSFUL.returnStatus());
 
                 System.out.println("");
+
+                movieCineplexModel.saveMovies();
 
                 break;
 
