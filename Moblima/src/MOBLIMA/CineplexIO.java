@@ -8,11 +8,21 @@ import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 
+/**
+ This class is to read and update
+ @version 1.0
+ @since 2022-11-01
+ */
 public class CineplexIO {
 	private static String SEPERATOR = "|";
 	// to read the data;
+	/**
+	 * The filename for reading data
+	 */
 	public static String filename = System.getProperty("user.dir") + "/Moblima/data/cineplex.txt";
-
+	/**
+	 * Constructor by default
+	 */
 	public CineplexIO() {
 		// TODO Auto-generated constructor stub
 		
@@ -27,6 +37,10 @@ public class CineplexIO {
 	}
 
 	// access the cineplexes;
+	/**
+	 * For reading cineplex
+	 * @return list of cineplex
+	 */
 	public ArrayList<Cineplex> accessCineplex() {
 		try {
 			ArrayList<Cineplex> cinRecord = new ArrayList<Cineplex>();
@@ -59,7 +73,13 @@ public class CineplexIO {
 			return null;
 		}
 	}
-
+	
+	
+	/**
+	 * Saving and storing cineplex in the file
+	 * @param store list of the cineplex
+	 * @throws IOException This is to check for any errors
+	 */
 	public static void cinStore(List store) throws IOException {
 		int y;
 		List rec = new ArrayList();
@@ -99,7 +119,12 @@ public class CineplexIO {
 		}
 		write(filename, rec);
 	}
-
+	/**
+	 * This is to read the list of cineplex
+	 * @param nameFolder This is the file to write to
+	 * @return This gives the cineplex list
+	 * @throws IOException This is to check for any errors
+	 */
 	public static List process(String nameFolder) throws IOException {
 		List record = new ArrayList();
 		Scanner scanner = new Scanner(new FileInputStream(nameFolder));
@@ -113,16 +138,25 @@ public class CineplexIO {
 		return record;
 
 	}
-
+	/**
+	 * To write to file
+	 * @param nameFolder This is the file to write to
+	 * @param record This contains the cineplex list
+	 * @throws IOException This is to check for any errors
+	 */
 	public static void write(String nameFolder, List record) throws IOException {
 		PrintWriter last = new PrintWriter(new FileWriter(nameFolder));
 		int z;
 		try {
 			for (z = 0; z < record.size(); z++) {
+				
 				last.println((String) record.get(z));
+				
 			}
 		} finally {
+			
 			last.close();
+			
 		}
 	}
 }
