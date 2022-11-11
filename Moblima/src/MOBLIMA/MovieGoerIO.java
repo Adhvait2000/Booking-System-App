@@ -3,35 +3,78 @@ package MOBLIMA;
 import java.io.*;
 import java.util.*;
 
-//import model.*;
+/**
+  Obtain and create bookings made by a customer (movie goer) using relevant information 
+  @version 1.0
+  @since 2022-11-01
+ */
 
 public class MovieGoerIO {
+	
+	/**
+	 * File containing list of movie goers
+	 */
+	private File text_file;  
+	
+	/**
+	 * List of movie goers
+	 */
+	public static ArrayList<MovieGoer> movie_goer = new ArrayList<>(); 
 
-	private File text_file;  // access file containing list of movie goers
+	/**
+	 * Name of Customer
+	 */
+	private String customer_name; 
 
-	public static ArrayList<MovieGoer> movie_goer = new ArrayList<>(); // list of movie goers
-
-	private String customer_name; // name of customer
-
+	/**
+	 * Mobile Number of Customer
+	 */
 	private int mobile_number;
 
-	private String emailCustomer; // customers' email as id
+	/**
+	 * Email of Customer
+	 */
+	private String emailCustomer;
 
-	private String booking_id; // booking id of a particular booking
+	/**
+	 * Booking id of a particular booking
+	 */
+	private String booking_id; 
 
-	private String booked_movie; // movie being booked by a customer
+	/**
+	 * Movie being booked by a customer
+	 */
+	private String booked_movie; 
 
-	private String date_time; // date and time of movie
+	/**
+	 * Date and Time of Movie
+	 */
+	private String date_time; 
 
-	private int seat_num; // customer's seat number(s)
+	/**
+	 * Customer's Seat Number(s)
+	 */
+	private int seat_num; 
 
-	private String first_seat; // first seat booked by customers
+	/**
+	 * First seat being booked by customer
+	 */
+	private String first_seat; 
 
-	private static int numOfBookings = 0; // to count number of bookings previously made, count no. of rows in each
-											// customer file (each row contains details of a customer's booking)
+	/**
+	 * Count number of bookings previously made
+	 */
+	private static int numOfBookings = 0; //count no. of rows in each customer file (each row contains details of a customer's booking)
+	
+	/**
+	 * Seats in a Cinema
+	 */
+	public int[][] seat_pos = new int[9][9]; 
 
-	public int[][] seat_pos = new int[9][9]; // seats in a cinema
-
+	/**
+	 * Constructor for the class:
+	 * Obtain file containing data storing list of customers
+	 */
 	public MovieGoerIO() {
 		if(System.getProperty("os.name").startsWith("Windows"))
 		{
@@ -40,12 +83,17 @@ public class MovieGoerIO {
 		{
 			text_file = new File(System.getProperty("user.dir") + "/Moblima/data/movie_goers.txt");
 		}
-	}; // constructor for the class
+	}; 
 
-	public void previousBookingCount() throws IOException, Exception { // class to count previous bookings made by
-																		// customers
+	/**
+	 * Method to Count previous bookings made by customers
+	 * Reads data on customers and updates numOfBookings based on bookings made by customers
+	 * @throw IOException
+	 * @throw Exception
+	 */
+	public void previousBookingCount() throws IOException, Exception { 
 
-		FileReader text_file = new FileReader(this.text_file); // read data on customers
+		FileReader text_file = new FileReader(this.text_file); 
 		BufferedReader reader = new BufferedReader(text_file);
 
 		String str;
@@ -58,7 +106,14 @@ public class MovieGoerIO {
 		reader.close();
 	}
 
-	public void readBookingsFile() throws IOException, Exception { // class to read a booking file
+	/**
+	 * Method to Read a booking file
+	 * Counts number of bookings and obtains relevant information for each booking
+	 * Adds a new movie goer everytime a booking is made
+	 * @throw IOException
+	 * @throw Exception
+	 */
+	public void readBookingsFile() throws IOException, Exception { // method to read a booking file
 
 		try {
 			previousBookingCount(); // update num of bookings already made by customers
@@ -101,10 +156,16 @@ public class MovieGoerIO {
 
 	}
 
+	/**
+	 * Method to Create a new booking
+	 * Counts number of bookings made so far and update the number upon creating a new booking
+	 * @throw IOException
+	 * @throw Exception
+	 */
 	public void writeNewBooking(String emailCustomer, String booking_id, String customer_name, int mobile_number,
 			String booked_movie, String time, int seat_num, String first_seat) throws IOException, Exception {
 
-		// class to create a new booking
+		// method to create a new booking
 
 		previousBookingCount(); // update numOfBookings once again
 
@@ -140,7 +201,10 @@ public class MovieGoerIO {
 
 	}
 
-	public void addNewMovieGoer() { // class to add movie goer
+	/**
+	 * Method to add a new movie goer using customer's email, name and mobile number
+	 */
+	public void addNewMovieGoer() { // method to add movie goer
 
 		MovieGoer goer = new MovieGoer();
 
@@ -179,8 +243,12 @@ public class MovieGoerIO {
 		}
 
 	}
+	
+	/**
+	 * Method to add a booking by first retrieving customer details
+	 */
 
-	public void addBooking(int i) { // class to add a booking made by customer
+	public void addBooking(int i) { 
 
 		MovieGoer goer = new MovieGoer();
 		goer = movie_goer.get(i); // get movie goer details
@@ -188,8 +256,11 @@ public class MovieGoerIO {
 		goer.setBooking(createBooking());
 
 	}
-
-	public BookingTicket createBooking() { // class to create new booking
+	
+	/**
+	 * Method to create a new booking using booking details
+	 */
+	public BookingTicket createBooking() { 
 
 		BookingTicket book = new BookingTicket();
 
@@ -203,6 +274,20 @@ public class MovieGoerIO {
 		return book;
 	}
 
+	/**
+	 * Method to Assign seats for a particular movie screening to a customer
+	 * A final booking is then written to the booking file 
+	 * @param movie
+	 * @param index
+	 * @param customer_name
+	 * @param emailCustomer
+	 * @param mobile_number 
+	 * @param booking_id
+	 * @param seat_num
+	 * @param first_seat
+	 * @throw IOException
+	 * @throw Exception
+	 */
 	public void assignSeatsByMovie(Movie movie, int index, String customer_name, String emailCustomer,
 			int mobile_number, String booking_id, int seat_num, String first_seat) throws IOException, Exception {
 
@@ -281,13 +366,21 @@ public class MovieGoerIO {
 		}
 
 	}
+	
+	/**
+	 * Method to retreive customer file to obtain customer details
+	 * @return text_file containing customer details
+	 */
 
-	public File getCustomerFile() { // class to retrieve customer file
+	public File getCustomerFile() { // method to retrieve customer file
 
 		return text_file;
 	}
 
-	public MovieGoer getMovieGoer(String emailCustomer) throws IOException, Exception { // class to identify movie goer
+	/**
+	 * Method to identify movie goer based on their email address
+	 */
+	public MovieGoer getMovieGoer(String emailCustomer) throws IOException, Exception { // method to identify movie goer
 
 		try {
 			readBookingsFile();
