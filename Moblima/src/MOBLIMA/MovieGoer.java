@@ -2,55 +2,107 @@ package MOBLIMA;
 import java.util.*;
 import java.io.*;
 
-public class MovieGoer { //details of movie goers i.e. our customers
+/**
+  Represents a movie goer/customer and relevant information for booking purposes
+  A customer can have multiple bookings 
+  @version 1.0
+  @since 2022-11-01
+ */
+public class MovieGoer { 
+	/**
+	 * Email address of customer
+	 */
+	private String emailCustomer; 
+	/**
+	 * Name of customer
+	 */
+	private String nameCustomer; 
+	/**
+	 * Mobile number of customer
+	 */
+    	private int mobileNumber;
+    	/**
+	 * List of bookings made by a customer
+	 */
+    	public ArrayList<BookingTicket> custBookings = new ArrayList<BookingTicket>();
 	
-	private String emailCustomer; //email address of customer
+	/**
+	 * Constructor for the class:
+	 * Creates a new customer with relevant information
+ 	 * @param nameCustomer This customer's name
+ 	 * @param mobileNumber This customer's mobile number
+	 * @param custBookings This customer's bookings 
+	 */
+   	public MovieGoer() {};
+    	public MovieGoer(String nameCustomer, int mobileNumber, String email, ArrayList<BookingTicket> custBookings){ 
+        	this.nameCustomer = nameCustomer; 
+        	this.mobileNumber = mobileNumber; 
+        	this.custBookings = custBookings; 
+   	}
 	
-	private String nameCustomer; //name of customer
-    
-    private int mobileNumber; //mobile number of customers
-    
-    public ArrayList<BookingTicket> custBookings = new ArrayList<BookingTicket>(); //list of bookings made by a customer
-    
-    public MovieGoer() {};
-   
-    public MovieGoer(String nameCustomer, int mobileNumber, String email, ArrayList<BookingTicket> custBookings){ //constructor for the class
-        this.nameCustomer = nameCustomer; //name of customer
-        this.mobileNumber = mobileNumber; //mobile number of customer
-        this.custBookings = custBookings; //bookings made by customer
-    }
-    
-	public void setNameCustomer(String nameCustomer) { //class to set name of customer
+	/**
+	 * Sets name of the customer
+ 	 * @param nameCustomer This customer's name
+	 */
+	public void setNameCustomer(String nameCustomer) { 
 		this.nameCustomer = nameCustomer;
 	}
 	
-	public void setMobileNumber(int mobileNumber) { //class to set mobile number of customer
+	/**
+	 * Sets mobile number of the customer
+ 	 * @param mobileNumber This customer's mobile number 
+	 */
+	public void setMobileNumber(int mobileNumber) { 
 		this.mobileNumber = mobileNumber;
 	}
 	
-	public String getNameCustomer() { //class to get name of customer
-		return nameCustomer;
-	}
-	
-	public int getMobileNumber() { //class to get mobile number of customer
-		return mobileNumber;
-	}
-	
-	public String getEmailCustomer() { //class to get email of customer
-		return emailCustomer;
-	}
-
-	public void setEmailCustomer(String emailCustomer) { //class to set email address of customer
+	/**
+	 * Sets email address of the customer
+ 	 * @param emailCustomer This customer's email address
+	 */
+	public void setEmailCustomer(String emailCustomer) { 
 		this.emailCustomer = emailCustomer;
 	}
 	
-
-	public void setBooking(BookingTicket booking) { //class to add new bookings 
+	/**
+	 * Gets name of the customer
+ 	 * @return nameCustomer This customer's name 
+	 */
+	public String getNameCustomer() { 
+		return nameCustomer;
+	}
+	
+	/**
+	 * Gets mobile number of the customer
+ 	 * @return mobileNumber This customer's mobile number 
+	 */
+	public int getMobileNumber() { 
+		return mobileNumber;
+	}
+	
+	/**
+	 * Gets email address of the customer
+ 	 * @return emailCustomer This customer's emai address 
+	 */
+	public String getEmailCustomer() { 
+		return emailCustomer;
+	}
+	
+	/**
+	 * Sets new booking for the customer
+	 * Necessary to check if booking already exists in list of bookings made by the customer, if not proceed to add the booking
+ 	 * @param BookingTicket booking This customer's new booking
+	 */
+	public void setBooking(BookingTicket booking) { 
 		if(!custBookings.contains(booking)) {
 		custBookings.add(booking);}
 	}
 	
-	public ArrayList<BookingTicket> getCustBookings() { //class to return list of bookings by customer
+	/**
+	 * Gets list of bookings made by the customer
+ 	 * @return custBookings This customer's bookings 
+	 */
+	public ArrayList<BookingTicket> getCustBookings() { 
 		return custBookings;
 	}
 
