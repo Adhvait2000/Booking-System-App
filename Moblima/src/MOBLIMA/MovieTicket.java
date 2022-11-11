@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- class to generate price for movie ticket
+ Class to generate price for movie ticket
  @version 1.0
  @since 2022-11-01
  */
