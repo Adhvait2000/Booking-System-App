@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 /**
  This cinema class is to create cinemas in cineplexes and to initialise the shows
+ @version 1.0
+ @since 2022-11-01
  */
 public class Cinema {
 
