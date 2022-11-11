@@ -1,5 +1,11 @@
 package MOBLIMA;
 
+/**
+*created this class to show and create the different movies. This will be using the objects in the class movie.java
+*@version 1.0
+@since 2022-11-01
+*/
+
 
 public class Show { // figure out how to implement extends movie
 	
