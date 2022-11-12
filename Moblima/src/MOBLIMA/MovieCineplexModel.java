@@ -124,7 +124,8 @@ public class MovieCineplexModel {
 
 		for (int i = 0; i < aMovieList.size(); i++) {
 			Movie temp = aMovieList.get(i);
-			temp.readShowDetails(this);
+			if(!temp.getShowingStatus().equals("COMING_SOON"))
+				temp.readShowDetails(this);
 			movieList.put(temp.getMovieName(), temp);
 		}
 	}
