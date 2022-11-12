@@ -27,6 +27,8 @@ public class SystemSettingsPage extends MenuPage {
 			goNext = true;
 			break;
 		case HOLIDAYS:
+			nextPage = new CreateRemoveUpdatePublicHoliday();
+			goNext = true;
 			break;
 		default:
 			this.endMenu = true;
