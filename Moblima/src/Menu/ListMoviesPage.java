@@ -135,7 +135,7 @@ public class ListMoviesPage extends MenuPage {
 							break;
 						}
 					}
-					TransactionID T = new TransactionID(chosenCinema);
+					TransactionID T = new TransactionID(displayOptions.get(chosenOption - 1).cineplex);
 					String TID = T.getTID();
 
 					mgio.assignSeatsByMovie(selectedMovie, showIndex, customerEmail, customerName, phoneNumber, TID,

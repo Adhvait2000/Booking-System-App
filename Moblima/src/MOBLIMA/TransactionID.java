@@ -11,15 +11,22 @@ public class TransactionID {
 	 * TransactionID Constructor
 	 * @param cinemaID ID of the cinema
 	 */
-	public TransactionID(Cinema cinema) {
-
-		switch(cinema.getCinemaName())
+	public TransactionID(Cineplex cineplex) {
+		String code = "";
+		switch(cineplex.getNameCineplex())
 		{
-			case "Shaw":
+			case "Cathay Cineplex Tampines":
+				code = "CCT";
+				break;
+			case "Golden Village Jurong":
+				code = "GVJ";
+				break;
+			case "Shaw Theatres Lido":
+				code = "STL";
 				break;
 		}
 		
-		createTID(cinema.getCinemaCode());
+		createTID(code);
 	}
 	
 	/**

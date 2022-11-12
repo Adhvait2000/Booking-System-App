@@ -23,7 +23,7 @@ public class BookingApp {
 			}
 
 			// if endMenu Flag is set to true, pop page from stack.
-			if (currentMenu.endMenu) {
+			if (menuStack.peek().endMenu) {
 				MenuPage prevMenu = menuStack.pop();
 				prevMenu.End();
 

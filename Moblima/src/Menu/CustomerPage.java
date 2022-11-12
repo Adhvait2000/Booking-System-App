@@ -63,10 +63,8 @@ public class CustomerPage extends MenuPage {
 		case WRITEREVIEWRATING:
 			ReviewRatingUpdate();
 			break;
-		case 8:
-			endMenu = true;
-			break;
 		}
+		endMenu = true;
 	}
 
 	public void MovieDetailsUpdate()
@@ -293,7 +291,7 @@ public class CustomerPage extends MenuPage {
     
         	//Booking Confirmed, Generate TID
         	if(confirmation.toLowerCase().equals("yes")) {
-        	TransactionID T = new TransactionID(MovieCineplexModel.getInstance().GetCineplexes().get(s.getCineplexID()).getListCinemas().get(s.getScreenNumber()));
+        	TransactionID T = new TransactionID(MovieCineplexModel.getInstance().GetCineplexes().get(s.getCineplexID()));
         	String TID = T.getTID();
      
         	String bookingID = TID;
