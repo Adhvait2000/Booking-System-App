@@ -21,8 +21,8 @@ public class CreateRemoveUpdateMovieShowtimes extends MenuPage {
         System.out.println("");
 
         System.out.println("Please select an option:\n"
-                + "1) Create Movie Listing\n"
-                + "2) Delete Movie Listing\n"
+                + "1) Create Show Listing\n"
+                + "2) Delete Show Listing\n"
                 + "3) Back");
 
         int select = ValidInputManager.GetIntWithinRange(1, 4);
