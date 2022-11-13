@@ -85,9 +85,9 @@ public class CreateRemoveUpdateMovieListing extends MenuPage {
                 System.out.print("Please select a movie number: ");
                 int movie_num = ValidInputManager.GetIntWithinRange(1, movies.size() + 1);
 
-                System.out.print("Current Status of the Movie: " + movies.get(movie_num - 1).getShowingStatus() + "");
+                System.out.print("Current Status of the Movie: " + movies.get(movie_num - 1).getShowingStatus() + " ");
 
-                System.out.println("Enter new status of the Movie (COMING_SOON, PREVIEW, NOW_SHOWING): ");
+                System.out.println("\nEnter new status of the Movie (COMING_SOON, PREVIEW, NOW_SHOWING): ");
 
                 String newStatus = ValidInputManager.GetString();
 
