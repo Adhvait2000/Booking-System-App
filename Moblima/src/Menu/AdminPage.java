@@ -6,10 +6,12 @@ import java.io.PrintWriter;
 import MOBLIMA.Password;
 
 public class AdminPage extends MenuPage {
+
 	static final int CRU_MOVIELISTING = 1;
 	static final int CRU_CINEMASHOWTIMES = 2;
-	static final int ADDNEWADMIN = 3;
-	static final int CONFIGURE_SETTINGS = 4;
+	static final int CRU_PUBLICHOLIDAYS = 3;
+	static final int ADDNEWADMIN = 4;
+	static final int CONFIGURE_SETTINGS = 5;
 
 	@Override
 	public void Initialize() {
@@ -23,9 +25,10 @@ public class AdminPage extends MenuPage {
 		System.out.println("Admin Page");
 		System.out.println("...1) Create/Update/Remove Movie Listing");
 		System.out.println("...2) Create/Update/Remove Cinema Showtimes and movies to be shown");
-		System.out.println("...3) Add new Admin");
-		System.out.println("...4) Configure Settings");
-		System.out.println("...5) Go back");
+		System.out.println("...3) Create/Update/Remove Public Holidays");
+		System.out.println("...4) Add new Admin");
+		System.out.println("...5) Configure Settings");
+		System.out.println("...6) Go back");
 
 		int choice = ValidInputManager.GetInt();
 		switch (choice) {
@@ -37,15 +40,22 @@ public class AdminPage extends MenuPage {
 				nextPage = new CreateRemoveUpdateMovieShowtimes();
 				goNext = true;
 				break;
+
+			case CRU_PUBLICHOLIDAYS:
+				nextPage = new CreateRemoveUpdatePublicHoliday();
+				goNext = true;
+				break;
+
 			case ADDNEWADMIN:
 				AddNewAdminUpdate();
 				break;
+
 			case CONFIGURE_SETTINGS:
 				this.nextPage = new SystemSettingsPage();
 				goNext = true;
-					
+
 				return;
-			case 5:
+			case 6:
 				endMenu = true;
 				return;
 		}
