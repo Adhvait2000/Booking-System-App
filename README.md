@@ -1,15 +1,15 @@
 # SC2002 Object Oriented Programming Assignment
 
-We as a group designed and developed a Console-based application (non-Graphical UI):
+We designed and developed a Console-based application (non-Graphical UI):
 
 # M0vie Booking and LIsting Management Application (MOBLIMA)
 
 The main objective of this assignment is to:
-1. apply the Object-Oriented (OO) Design concepts you have learnt in the course,
-2. model, design and develop a quality OO application fulfilling the project
-requirement,
-3. gain familiarity with using Java as an object oriented programming language,
-4. work collaboratively as a group to achieve a common goal.
+1. Apply the Object-Oriented (OO) Design concepts you have learnt in the course
+2. Model, design and develop a quality OO application fulfilling the project
+requirement
+3. Gain familiarity with using Java as an object oriented programming language
+4. Work collaboratively as a group to achieve a common goal
 
 # Assumptions:
 
