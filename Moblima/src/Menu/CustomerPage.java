@@ -19,10 +19,11 @@ import MOBLIMA.BookingTicket;
 
 public class CustomerPage extends MenuPage {
 	static final int VIEWMOVIES = 1;
-	static final int BOOKING_HISTORY = 2;
-	static final int TOP_RANKING = 3;
-	static final int ALL_CINEPLEX = 4;
-	static final int WRITEREVIEWRATING = 5;
+	static final int VIEWREVIEWS = 2;
+	static final int BOOKING_HISTORY = 3;
+	static final int TOP_RANKING = 4;
+	static final int ALL_CINEPLEX = 5;
+	static final int WRITEREVIEWRATING = 6;
 	
 	@Override
 	public void Initialize() {
@@ -35,11 +36,12 @@ public class CustomerPage extends MenuPage {
 		// TODO Auto-generated method stub
 		System.out.println("Customer Mode");
 		System.out.println("...1) View Movies");
-		System.out.println("...2) View booking history");
-		System.out.println("...3) List top 5 movies ranked by ticket sales or overall reviewer's ratings");
-		System.out.println("...4) List all Cineplexes");
-		System.out.println("...5) Write a review / Give Rating");
-		System.out.println("...6) Go Back");
+		System.out.println("...2) View Reviews");
+		System.out.println("...3) View booking history");
+		System.out.println("...4) List top 5 movies ranked by ticket sales or overall reviewer's ratings");
+		System.out.println("...5) List all Cineplexes");
+		System.out.println("...6) Write a review / Give Rating");
+		System.out.println("...7) Go Back");
 		
 		int choice = ValidInputManager.GetIntWithinRange(1, 7);
 		System.out.println("");
@@ -50,6 +52,9 @@ public class CustomerPage extends MenuPage {
 			//MovieDetailsUpdate();
 			this.nextPage = new ListMoviesPage();
 			this.goNext = true;	
+			break;
+		case VIEWREVIEWS:
+			MovieDetailsUpdate();
 			break;
 		case BOOKING_HISTORY:
 			ViewBookingHistoryUpdate();
