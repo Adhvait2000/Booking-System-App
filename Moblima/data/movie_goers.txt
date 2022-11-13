@@ -1,9 +1,0 @@
-Adhvait|XXX2022102135|adhvait@email|12345678|Black Adam|20/12/22 9:30|1|d5|
-Adhvait|XXX2022102237|adhvait@email.com|12345678|Ticket to Paradise|16/12/22 12:30|1|h6|
-Adhvait|XXX202210239|adhvait@email.com|12345678|Top Gun Maverick|15/12/22 13:30|1|h5|
-Adhvait|GVJ2022101022|adhvait@email.com|12345678|Ticket to Paradise|16/12/22 12:30|1|c4|
-Adhvait|STL2022101027|adhvait@email.com|12345678|Black Panther|25/10/22 17:00|1|g5|
-Adhvait|STL2022101027|adhvait@email.com|12345678|Black Panther|24/10/22 19:00|1|h7|
-Adhvait|STL2022101032|adhvait@email.com|12345678|Black Panther|25/10/22 17:00|1|d4|
-Adhvait|STL2022101032|adhvait@email.cim|12345678|Black Panther|24/10/22 19:00|1|e8|
-Adhvait|GVJ2022101357|adhvait@email.com|12345678|Black Adam|01/01/22 14:30PM|1|a2|
