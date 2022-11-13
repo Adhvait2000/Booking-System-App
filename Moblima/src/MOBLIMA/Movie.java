@@ -27,26 +27,44 @@ public class Movie {
         this.Shows = new ArrayList<Show>();
     }
 
+    /**
+     * @return String
+     */
     public String getMovieName() {
         return movie;
     }
 
+    /**
+     * @return String
+     */
     public String getShowingStatus() {
         return showingStatus;
     }
 
+    /**
+     * @return String
+     */
     public String getSynopsis() {
         return synopsis;
     }
 
+    /**
+     * @return String
+     */
     public String getDirector() {
         return director;
     }
 
+    /**
+     * @return String[]
+     */
     public String[] getCast() {
         return cast;
     }
 
+    /**
+     * @return double
+     */
     public double getTotalRatings() {
         if (ratings.length == 0)
             return -1;
@@ -62,14 +80,23 @@ public class Movie {
         return sum;
     }
 
+    /**
+     * @return double[]
+     */
     public double[] getAllRatings() {
         return ratings;
     }
 
+    /**
+     * @return String[]
+     */
     public String[] getReviews() {
         return reviews;
     }
 
+    /**
+     * @param rev
+     */
     public void writeReview(String rev) {
         String[] temp;
         if (reviews == null) {
@@ -86,6 +113,9 @@ public class Movie {
         reviews = temp;
     }
 
+    /**
+     * @param rat
+     */
     public void giveRating(double rat) {
         double[] temp;
         if (ratings == null) {
@@ -101,6 +131,13 @@ public class Movie {
         ratings = temp;
     }
 
+    /**
+     * @param dt
+     * @param screenNum
+     * @param CineplexID
+     * @param is3D
+     * @return Show
+     */
     public Show createShowListing(String dt, int screenNum, int CineplexID, boolean is3D) {
         Show s = new Show(this, dt, screenNum, CineplexID, is3D);
         Shows.add(s);
@@ -110,22 +147,23 @@ public class Movie {
     public void saveShowDetails() {
         MovieIO m = new MovieIO();
         try {
-        	String dir = "";
-    		// If using windows
-    		if(System.getProperty("os.name").startsWith("Windows"))
-    		{
-    			dir = System.getProperty("user.dir") + "/data/Shows/" + movie + ".txt";
-    		}else
-    		{
-    			dir = System.getProperty("user.dir") + "/Moblima/data/Shows/" + movie + ".txt";
-    		}
-        	
+            String dir = "";
+            // If using windows
+            if (System.getProperty("os.name").startsWith("Windows")) {
+                dir = System.getProperty("user.dir") + "/data/Shows/" + movie + ".txt";
+            } else {
+                dir = System.getProperty("user.dir") + "/Moblima/data/Shows/" + movie + ".txt";
+            }
+
             m.saveShows(dir, Shows);
         } catch (IOException e) {
             System.out.println("IOException > " + e.getMessage());
         }
     }
 
+    /**
+     * @param movieCineplexModel
+     */
     public void readShowDetails(MovieCineplexModel movieCineplexModel) {
         Show temp;
         ArrayList<Cineplex> tempCineplexArray;
@@ -134,15 +172,13 @@ public class Movie {
         Cinema tempCinema;
         MovieIO m = new MovieIO();
         try {
-        	String dir = "";
-    		// If using windows
-    		if(System.getProperty("os.name").startsWith("Windows"))
-    		{
-    			dir = System.getProperty("user.dir") + "/data/Shows/" + movie + ".txt";
-    		}else
-    		{
-    			dir = System.getProperty("user.dir") + "/Moblima/data/Shows/" + movie + ".txt";
-    		}
+            String dir = "";
+            // If using windows
+            if (System.getProperty("os.name").startsWith("Windows")) {
+                dir = System.getProperty("user.dir") + "/data/Shows/" + movie + ".txt";
+            } else {
+                dir = System.getProperty("user.dir") + "/Moblima/data/Shows/" + movie + ".txt";
+            }
             ArrayList arr = m.readShows(this, dir);
             Shows = arr;
 
@@ -160,10 +196,16 @@ public class Movie {
 
     }
 
+    /**
+     * @return ArrayList<Show>
+     */
     public ArrayList<Show> getShows() {
         return Shows;
     }
 
+    /**
+     * @param st
+     */
     public void setShowingStatus(String st) {
         showingStatus = st;
     }
@@ -172,6 +214,9 @@ public class Movie {
         tsales++;
     }
 
+    /**
+     * @return int
+     */
     public int getTSales() {
         return tsales;
     }
@@ -196,6 +241,10 @@ public class Movie {
         }
     };
 
+    /**
+     * @param m
+     * @param ind
+     */
     public void deleteShow(MovieCineplexModel m, int ind) {
         Show s = Shows.get(ind);
         ArrayList<Cineplex> temp = m.GetCineplexes();
@@ -206,6 +255,10 @@ public class Movie {
 
     }
 
+    /**
+     * @param m
+     * @param s
+     */
     public void deleteShow(MovieCineplexModel m, Show s) {
         ArrayList<Cineplex> temp = m.GetCineplexes();
         ArrayList<Cinema> temp2 = temp.get(s.getCineplexID()).getListCinemas();

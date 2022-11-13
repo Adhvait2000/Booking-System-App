@@ -7,17 +7,19 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-
 /**
- This class is to update and write prices to txt file
- @version 1.0
- @since 2022-11-01
+ * This class is to update and write prices to txt file
+ * 
+ * @version 1.0
+ * @since 2022-11-01
  */
 
 public class UpdateTicketPrices {
 	int x;
+
 	/**
 	 * Write ticket price into txt file
+	 * 
 	 * @param priceLatest This is the new latest price array
 	 */
 	public void priceLog(ArrayList priceLatest) {
@@ -30,8 +32,7 @@ public class UpdateTicketPrices {
 			}
 			listp.print(priceLatest.get(7));
 			listp.close();
-		}
-		catch (FileNotFoundException exc) {
+		} catch (FileNotFoundException exc) {
 			exc.printStackTrace();
 		}
 	}

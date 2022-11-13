@@ -4,27 +4,29 @@ import java.io.*;
 import java.util.*;
 
 /**
-  Obtain and create bookings made by a customer (movie goer) using relevant information 
-  @version 1.0
-  @since 2022-11-01
+ * Obtain and create bookings made by a customer (movie goer) using relevant
+ * information
+ * 
+ * @version 1.0
+ * @since 2022-11-01
  */
 
 public class MovieGoerIO {
-	
+
 	/**
 	 * File containing list of movie goers
 	 */
-	private File text_file;  
-	
+	private File text_file;
+
 	/**
 	 * List of movie goers
 	 */
-	public static ArrayList<MovieGoer> movie_goer = new ArrayList<>(); 
+	public static ArrayList<MovieGoer> movie_goer = new ArrayList<>();
 
 	/**
 	 * Name of Customer
 	 */
-	private String customer_name; 
+	private String customer_name;
 
 	/**
 	 * Mobile Number of Customer
@@ -39,61 +41,62 @@ public class MovieGoerIO {
 	/**
 	 * Booking id of a particular booking
 	 */
-	private String booking_id; 
+	private String booking_id;
 
 	/**
 	 * Movie being booked by a customer
 	 */
-	private String booked_movie; 
+	private String booked_movie;
 
 	/**
 	 * Date and Time of Movie
 	 */
-	private String date_time; 
+	private String date_time;
 
 	/**
 	 * Customer's Seat Number(s)
 	 */
-	private int seat_num; 
+	private int seat_num;
 
 	/**
 	 * First seat being booked by customer
 	 */
-	private String first_seat; 
+	private String first_seat;
 
 	/**
 	 * Count number of bookings previously made
 	 */
-	private static int numOfBookings = 0; //count no. of rows in each customer file (each row contains details of a customer's booking)
-	
+	private static int numOfBookings = 0; // count no. of rows in each customer file (each row contains details of a
+											// customer's booking)
+
 	/**
 	 * Seats in a Cinema
 	 */
-	public int[][] seat_pos = new int[9][9]; 
+	public int[][] seat_pos = new int[9][9];
 
 	/**
 	 * Constructor for the class:
 	 * Obtain file containing data storing list of customers
 	 */
 	public MovieGoerIO() {
-		if(System.getProperty("os.name").startsWith("Windows"))
-		{
+		if (System.getProperty("os.name").startsWith("Windows")) {
 			text_file = new File(System.getProperty("user.dir") + "/data/movie_goers.txt");
-		}else
-		{
+		} else {
 			text_file = new File(System.getProperty("user.dir") + "/Moblima/data/movie_goers.txt");
 		}
-	}; 
+	};
 
 	/**
 	 * Method to Count previous bookings made by customers
-	 * Reads data on customers and updates numOfBookings based on bookings made by customers
+	 * Reads data on customers and updates numOfBookings based on bookings made by
+	 * customers
+	 * 
 	 * @throw IOException
 	 * @throw Exception
 	 */
-	public void previousBookingCount() throws IOException, Exception { 
+	public void previousBookingCount() throws IOException, Exception {
 
-		FileReader text_file = new FileReader(this.text_file); 
+		FileReader text_file = new FileReader(this.text_file);
 		BufferedReader reader = new BufferedReader(text_file);
 
 		String str;
@@ -110,6 +113,7 @@ public class MovieGoerIO {
 	 * Method to Read a booking file
 	 * Counts number of bookings and obtains relevant information for each booking
 	 * Adds a new movie goer everytime a booking is made
+	 * 
 	 * @throw IOException
 	 * @throw Exception
 	 */
@@ -158,7 +162,9 @@ public class MovieGoerIO {
 
 	/**
 	 * Method to Create a new booking
-	 * Counts number of bookings made so far and update the number upon creating a new booking
+	 * Counts number of bookings made so far and update the number upon creating a
+	 * new booking
+	 * 
 	 * @throw IOException
 	 * @throw Exception
 	 */
@@ -243,12 +249,12 @@ public class MovieGoerIO {
 		}
 
 	}
-	
+
 	/**
 	 * Method to add a booking by first retrieving customer details
 	 */
 
-	public void addBooking(int i) { 
+	public void addBooking(int i) {
 
 		MovieGoer goer = new MovieGoer();
 		goer = movie_goer.get(i); // get movie goer details
@@ -256,11 +262,11 @@ public class MovieGoerIO {
 		goer.setBooking(createBooking());
 
 	}
-	
+
 	/**
 	 * Method to create a new booking using booking details
 	 */
-	public BookingTicket createBooking() { 
+	public BookingTicket createBooking() {
 
 		BookingTicket book = new BookingTicket();
 
@@ -276,12 +282,13 @@ public class MovieGoerIO {
 
 	/**
 	 * Method to Assign seats for a particular movie screening to a customer
-	 * A final booking is then written to the booking file 
+	 * A final booking is then written to the booking file
+	 * 
 	 * @param movie
 	 * @param index
 	 * @param customer_name
 	 * @param emailCustomer
-	 * @param mobile_number 
+	 * @param mobile_number
 	 * @param booking_id
 	 * @param seat_num
 	 * @param first_seat
@@ -366,9 +373,10 @@ public class MovieGoerIO {
 		}
 
 	}
-	
+
 	/**
 	 * Method to retreive customer file to obtain customer details
+	 * 
 	 * @return text_file containing customer details
 	 */
 

@@ -20,23 +20,22 @@ public class MovieCineplexModel {
 	private String moviesDir = System.getProperty("user.dir") + "/Moblima/data/movies.txt";
 	private String cineplexDir = System.getProperty("user.dir") + "/Moblima/data/cineplex.txt";
 
+	/**
+	 * @return MovieCineplexModel
+	 */
 	public static MovieCineplexModel getInstance() {
 		if (instance == null) {
 			instance = new MovieCineplexModel();
-			
-        	String dir = "";
-    		// If using windows
-    		if(System.getProperty("os.name").startsWith("Windows"))
-    		{
-    			instance.moviesDir = System.getProperty("user.dir") + "/data/movies.txt";
-    			instance.cineplexDir = System.getProperty("user.dir") + "/data/cineplex.txt";
-    		}else
-    		{
-    			instance.moviesDir = System.getProperty("user.dir") + "/Moblima/data/movies.txt";
-    			instance.cineplexDir = System.getProperty("user.dir") + "/Moblima/data/cineplex.txt";
-    		}
-    		
-    		
+
+			String dir = "";
+			// If using windows
+			if (System.getProperty("os.name").startsWith("Windows")) {
+				instance.moviesDir = System.getProperty("user.dir") + "/data/movies.txt";
+				instance.cineplexDir = System.getProperty("user.dir") + "/data/cineplex.txt";
+			} else {
+				instance.moviesDir = System.getProperty("user.dir") + "/Moblima/data/movies.txt";
+				instance.cineplexDir = System.getProperty("user.dir") + "/Moblima/data/cineplex.txt";
+			}
 
 			if (!instance.readCineplexes()) {
 				System.err.println("[MovieCineplexModel] Error: Unable to read Cineplexes");
@@ -80,6 +79,9 @@ public class MovieCineplexModel {
 		return false;
 	}
 
+	/**
+	 * @return boolean
+	 */
 	public boolean readMovies() {
 		MovieIO temp = new MovieIO();
 		try {
@@ -91,6 +93,9 @@ public class MovieCineplexModel {
 		return false;
 	}
 
+	/**
+	 * @return boolean
+	 */
 	public boolean saveMovies() {
 		MovieIO temp = new MovieIO();
 		try {
@@ -124,7 +129,7 @@ public class MovieCineplexModel {
 
 		for (int i = 0; i < aMovieList.size(); i++) {
 			Movie temp = aMovieList.get(i);
-			if(!temp.getShowingStatus().equals("COMING_SOON"))
+			if (!temp.getShowingStatus().equals("COMING_SOON"))
 				temp.readShowDetails(this);
 			movieList.put(temp.getMovieName(), temp);
 		}
@@ -187,12 +192,18 @@ public class MovieCineplexModel {
 		}
 	}
 
+	/**
+	 * @return boolean
+	 */
 	public boolean readCineplexes() {
 		CineplexIO temp = new CineplexIO();
 		setCineplex(temp.accessCineplex());
 		return true;
 	}
 
+	/**
+	 * @return boolean
+	 */
 	public boolean saveCineplexes() {
 		CineplexIO temp = new CineplexIO();
 		try {
@@ -204,6 +215,11 @@ public class MovieCineplexModel {
 		return false;
 	}
 
+	/**
+	 * @param movieName
+	 * @param movie
+	 * @return boolean
+	 */
 	public boolean updateMovie(String movieName, Movie movie) {
 		if (movieList.containsKey(movieName)) {
 			movieList.replace(movieName, movie);

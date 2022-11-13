@@ -9,9 +9,10 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 
 /**
- This class is to read and update
- @version 1.0
- @since 2022-11-01
+ * This class is to read and update
+ * 
+ * @version 1.0
+ * @since 2022-11-01
  */
 public class CineplexIO {
 	private static String SEPERATOR = "|";
@@ -20,18 +21,17 @@ public class CineplexIO {
 	 * The filename for reading data
 	 */
 	public static String filename = System.getProperty("user.dir") + "/Moblima/data/cineplex.txt";
+
 	/**
 	 * Constructor by default
 	 */
 	public CineplexIO() {
 		// TODO Auto-generated constructor stub
-		
+
 		// If using windows
-		if(System.getProperty("os.name").startsWith("Windows"))
-		{
+		if (System.getProperty("os.name").startsWith("Windows")) {
 			filename = System.getProperty("user.dir") + "/data/cineplex.txt";
-		}else
-		{
+		} else {
 			filename = System.getProperty("user.dir") + "/Moblima/data/cineplex.txt";
 		}
 	}
@@ -39,6 +39,7 @@ public class CineplexIO {
 	// access the cineplexes;
 	/**
 	 * For reading cineplex
+	 * 
 	 * @return list of cineplex
 	 */
 	public ArrayList<Cineplex> accessCineplex() {
@@ -73,10 +74,10 @@ public class CineplexIO {
 			return null;
 		}
 	}
-	
-	
+
 	/**
 	 * Saving and storing cineplex in the file
+	 * 
 	 * @param store list of the cineplex
 	 * @throws IOException This is to check for any errors
 	 */
@@ -119,8 +120,10 @@ public class CineplexIO {
 		}
 		write(filename, rec);
 	}
+
 	/**
 	 * This is to read the list of cineplex
+	 * 
 	 * @param nameFolder This is the file to write to
 	 * @return This gives the cineplex list
 	 * @throws IOException This is to check for any errors
@@ -138,10 +141,12 @@ public class CineplexIO {
 		return record;
 
 	}
+
 	/**
 	 * To write to file
+	 * 
 	 * @param nameFolder This is the file to write to
-	 * @param record This contains the cineplex list
+	 * @param record     This contains the cineplex list
 	 * @throws IOException This is to check for any errors
 	 */
 	public static void write(String nameFolder, List record) throws IOException {
@@ -149,14 +154,14 @@ public class CineplexIO {
 		int z;
 		try {
 			for (z = 0; z < record.size(); z++) {
-				
+
 				last.println((String) record.get(z));
-				
+
 			}
 		} finally {
-			
+
 			last.close();
-			
+
 		}
 	}
 }

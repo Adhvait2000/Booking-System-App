@@ -6,6 +6,9 @@ import java.util.Stack;
 public class BookingApp {
 	static Stack<MenuPage> menuStack;
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		menuStack = new Stack<MenuPage>();
 		menuStack.push(new MainMenuPage()); //

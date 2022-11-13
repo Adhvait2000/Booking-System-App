@@ -1,9 +1,10 @@
 package Menu;
+
 import MOBLIMA.MovieCineplexModel;
 import MOBLIMA.Password;
 
 public class AdminLoginPage extends MenuPage {
-	
+
 	@Override
 	public void Initialize() {
 		// TODO Auto-generated method stub
@@ -16,16 +17,15 @@ public class AdminLoginPage extends MenuPage {
 		// TODO Auto-generated method stub
 		System.out.println("...Please login to continue...");
 		System.out.println("...Please input password now");
-		
+
 		String pass = ValidInputManager.GetString();
-		
+
 		Password passwordHash = new Password();
-		if(!passwordHash.checkPassword(pass)) // Login Failed
+		if (!passwordHash.checkPassword(pass)) // Login Failed
 		{
 			System.err.println("Wrong Password!");
 			endMenu = true;
-		}else
-		{
+		} else {
 			System.out.println("Login successful!");
 			nextPage = new AdminPage();
 			goNext = true;
@@ -35,6 +35,6 @@ public class AdminLoginPage extends MenuPage {
 	@Override
 	public void End() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

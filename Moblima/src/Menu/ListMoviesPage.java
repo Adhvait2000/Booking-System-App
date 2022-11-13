@@ -156,6 +156,9 @@ public class ListMoviesPage extends MenuPage {
 		this.endMenu = true;
 	}
 
+	/**
+	 * @return Movie
+	 */
 	Movie movieSelect() {
 		boolean checker = true;
 		int movieIndex = 0;
@@ -188,6 +191,9 @@ public class ListMoviesPage extends MenuPage {
 		return movieList.get(movieIndex - 1);
 	}
 
+	/**
+	 * @param selectedMovie
+	 */
 	void CreateDisplayOptions(Movie selectedMovie) {
 		ArrayList<Cineplex> cineplexList = MovieCineplexModel.getInstance().GetCineplexes();
 

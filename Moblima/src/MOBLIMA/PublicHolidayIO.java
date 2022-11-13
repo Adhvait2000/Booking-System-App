@@ -57,13 +57,13 @@ public class PublicHolidayIO {
 
 		try {
 
-			FileWriter text_file;		
+			FileWriter text_file;
 			if (System.getProperty("os.name").startsWith("Windows")) {
 				text_file = new FileWriter(System.getProperty("user.dir") + "/data/PublicHolidays.txt", false);
 			} else {
 				text_file = new FileWriter(System.getProperty("user.dir") + "/Moblima/data/PublicHolidays.txt", false);
 			}
-			
+
 			BufferedWriter reader = new BufferedWriter(text_file);
 
 			for (int i = 0; i < publicHolidays.length; i++)

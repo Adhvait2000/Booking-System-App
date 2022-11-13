@@ -1,4 +1,5 @@
 package MOBLIMA;
+
 public enum AdminChangeStatus {
 	// when the change made in the admin section is Successful
 
